@@ -1,0 +1,17 @@
+[
+  {
+    "modid": "FPS",
+    "name": "FPS Display",
+    "description": "Shows your current FPS On the top left of your screen.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/kada49/FPS-Display",
+    "updateUrl": "",
+    "authorList": [
+      "kada49"
+    ],
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
