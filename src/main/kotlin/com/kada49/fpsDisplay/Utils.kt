@@ -8,7 +8,7 @@ object Utils {
     fun openUrl(url: String) {
         try {
             Desktop.getDesktop().browse( URI(url) )
-        } catch (ignored: Exception) {}
+        } catch (exception: Exception) {}
     }
 
 }

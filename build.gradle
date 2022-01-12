@@ -5,7 +5,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
-version = "0.1.0"
+version = "0.1.1"
 group = "com.kada49.fpsDisplay"
 archivesBaseName = "FPS Display"
 
