@@ -62,7 +62,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
 class ConfigSorting : SortingBehavior() {
     @NotNull
     override fun getCategoryComparator(): Comparator<Category> {
-        return label@ Comparator { o1: Category, o2: Category ->
+        return Comparator { o1: Category, o2: Category ->
             if (o1.name == "Personalisation") { return@Comparator -1 }
             if (o2.name == "Personalisation") { return@Comparator 1 }
             return@Comparator o1.name.compareTo(o2.name)
@@ -70,7 +70,7 @@ class ConfigSorting : SortingBehavior() {
     }
 
     override fun getPropertyComparator(): Comparator<in PropertyData> {
-        return label@ Comparator {o1: PropertyData, o2: PropertyData ->
+        return Comparator {o1: PropertyData, o2: PropertyData ->
             if (o1.attributesExt.name == "GitHub") { return@Comparator -1 }
             if (o1.attributesExt.name == "Toggle FPS Display") { return@Comparator -1 }
             if (o2.attributesExt.name == "GitHub") { return@Comparator 1 }

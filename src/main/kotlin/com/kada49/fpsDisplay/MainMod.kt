@@ -7,6 +7,7 @@ import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
@@ -16,7 +17,9 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 object MainMod{
 
     @Mod.EventHandler
-    fun init(event: FMLInitializationEvent){
+    fun preinit(event: FMLPreInitializationEvent){
+
+        Constants.Data.LOGGER.info("Preinitialisation started for ${event.side}")
 
         Vigilance.initialize()
         Configuration.preload()
