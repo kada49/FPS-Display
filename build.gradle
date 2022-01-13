@@ -5,8 +5,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
-version = "0.1.2"
-group = "com.kada49.fpsDisplay"
+version = "0.2.0"
+group = "it.kada49.fpsDisplay"
 archivesBaseName = "FPS Display"
 
 sourceCompatibility = targetCompatibility = 1.8
