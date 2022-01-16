@@ -3,6 +3,7 @@ package it.kada49.fpsDisplay
 import gg.essential.vigilance.Vigilant
 import gg.essential.vigilance.data.*
 import org.jetbrains.annotations.NotNull
+import java.awt.Color
 import java.io.File
 
 
@@ -17,13 +18,12 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     var toggleSwitch = true
 
     @Property(
-        type = PropertyType.SELECTOR,
+        type = PropertyType.COLOR,
         name = "Color of the FPS Display text",
         description = "Select a color from the whole palette to match the FPS Display text onscreen.",
-        options = ["White", "Light Grey", "Grey", "Black", "Yellow", "Orange", "Red", "Brown", "Lime", "Green", "Light Blue", "Cyan", "Blue", "Pink", "Magenta", "Purple"],
         category = "Personalisation"
     )
-    var colorSelector = 0
+    var fpsColor = Color(255, 255, 255)
 
     @Property(
         type = PropertyType.SWITCH,
@@ -56,7 +56,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         placeholder = "Open",
         category = "Links"
     )
-    fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+    @Suppress("unused") fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
 
     @Property(
         type = PropertyType.BUTTON,
@@ -65,13 +65,10 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         placeholder = "Join",
         category = "Links"
     )
-    fun discordButton() = Utils.openUrl("https://Discord.gg/DtB3vEfX4R")
+    @Suppress("unused") fun discordButton() = Utils.openUrl("https://Discord.gg/DtB3vEfX4R")
 
 
-    init {
-        initialize()
-
-    }
+    init { initialize() }
 
 }
 

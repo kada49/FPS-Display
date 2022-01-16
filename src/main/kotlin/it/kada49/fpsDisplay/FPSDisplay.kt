@@ -1,6 +1,5 @@
 package it.kada49.fpsDisplay
 
-import it.kada49.fpsDisplay.Constants.Colors
 import net.minecraft.client.Minecraft
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -22,7 +21,7 @@ class FpsDisplay {
             displayFPS,
             4F,
             4F,
-            Colors.INTEGER[Configuration.colorSelector], Configuration.shadowSwitch
+            Configuration.fpsColor.rgb, Configuration.shadowSwitch
         )
     }
 }
