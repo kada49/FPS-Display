@@ -56,7 +56,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         placeholder = "Open",
         category = "Links"
     )
-    @Suppress("unused") fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+    fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
 
     @Property(
         type = PropertyType.BUTTON,
@@ -65,7 +65,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         placeholder = "Join",
         category = "Links"
     )
-    @Suppress("unused") fun discordButton() = Utils.openUrl("https://Discord.gg/DtB3vEfX4R")
+    fun discordButton() = Utils.openUrl("https://Discord.gg/DtB3vEfX4R")
 
 
     init { initialize() }
