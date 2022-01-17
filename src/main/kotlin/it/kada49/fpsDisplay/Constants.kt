@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager
 class Constants {
     object Data{
         const val NAME = "FPS Display"
-        const val VERSION = "0.2.0"
+        const val VERSION = "0.2.1"
         const val ID = "FPS"
 
         val LOGGER = LogManager.getLogger(ID)
