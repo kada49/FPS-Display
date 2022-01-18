@@ -5,8 +5,8 @@
     "description": "Shows your current FPS On the top left of your screen.",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "https://github.com/kada49/FPS-Display",
-    "updateUrl": "",
+    "url": "https://github.com/kada49/FPS-Display/releases/latest",
+    "credits": "Many people in the Official Sk1er Discord: https://discord.gg/sk1er"
     "authorList": [
       "kada49"
     ],

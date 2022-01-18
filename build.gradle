@@ -5,7 +5,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
-version = "0.2.1"
+version = "0.2.2"
 group = "it.kada49.fpsDisplay"
 archivesBaseName = "FPS Display"
 
@@ -31,6 +31,7 @@ configurations {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
     include "gg.essential:vigilance-1.8.9-forge:195"
 }
 
@@ -76,6 +77,7 @@ shadowJar {
     duplicatesStrategy DuplicatesStrategy.EXCLUDE
 
     ("gg.essential:vigilance-1.8.9-forge:195")
+    ("com.squareup.okhttp3:okhttp:4.9.3")
 }
 
 build.dependsOn shadowJar

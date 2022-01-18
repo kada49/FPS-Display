@@ -25,6 +25,7 @@ object MainMod{
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(FpsDisplay())
+        MinecraftForge.EVENT_BUS.register(CheckForUpdates())
 
         ClientCommandHandler.instance.registerCommand(Command())
     }
