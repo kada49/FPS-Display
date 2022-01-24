@@ -19,11 +19,8 @@ class Update {
         val newVersion = updateJson.replace(".", "").toInt()
 
         var message = if (newVersion == version) return
-        else if (newVersion >= version) {
-            "Version $updateJson available!§7 /fps -> Links -> GitHub"
-        } else {
-            "Why are you in the future?!?"
-        }
+        else if (newVersion >= version) "Version $updateJson available!§7 /fps -> Links -> GitHub"
+        else "Why are you in the future?!?"
         message = "$PREFIX §a$message"
         UChat.chat(message)
     }
