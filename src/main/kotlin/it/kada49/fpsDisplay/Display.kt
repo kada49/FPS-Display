@@ -5,17 +5,19 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 
-class FpsDisplay {
+class Display {
 
     @SubscribeEvent
     fun fpsDisplay(event: RenderGameOverlayEvent.Post) {
 
+        val minecraft = Minecraft.getMinecraft()
+        val fpsText = Minecraft.getDebugFPS().toString()
+
+        if (minecraft.gameSettings.showDebugInfo) return
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return
         if (!Configuration.toggleSwitch) return
 
-        val minecraft = Minecraft.getMinecraft()
-
-        var displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}${Minecraft.getDebugFPS()}${if (Configuration.suffixSwitch) " FPS" else ""}"
+        val displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
 
         minecraft.fontRendererObj.drawString(
             displayFPS,

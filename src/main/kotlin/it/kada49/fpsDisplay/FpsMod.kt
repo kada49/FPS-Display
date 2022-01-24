@@ -11,9 +11,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
 
-@Mod(name = Constants.Data.NAME, modid = Constants.Data.ID, version = Constants.Data.VERSION, modLanguageAdapter = "KotlinLanguageAdapter")
+@Mod(name = Constants.Data.NAME, modid = Constants.Data.ID, version = Constants.Data.VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter")
 
-object MainMod{
+object FpsMod{
 
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent){
@@ -24,8 +24,8 @@ object MainMod{
         Configuration.preload()
 
         MinecraftForge.EVENT_BUS.register(this)
-        MinecraftForge.EVENT_BUS.register(FpsDisplay())
-        MinecraftForge.EVENT_BUS.register(CheckForUpdates())
+        MinecraftForge.EVENT_BUS.register(Display())
+        MinecraftForge.EVENT_BUS.register(Update())
 
         ClientCommandHandler.instance.registerCommand(Command())
     }

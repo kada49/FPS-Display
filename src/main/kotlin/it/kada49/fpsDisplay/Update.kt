@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent
 
 
-class CheckForUpdates {
+class Update {
 
     private val minecraft = Minecraft.getMinecraft()
     private var hasTriggered = false
@@ -18,11 +18,12 @@ class CheckForUpdates {
         val updateJson = Utils.fetchHypixelApi("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest").get("promos").asJsonObject.get("1.8.9-latest").toString().replace('"'.toString(), "")
         val newVersion = updateJson.replace(".", "").toInt()
 
-        var message = ""
-
-        if (newVersion == version) return
-        else if (newVersion >= version) { message = "Version $updateJson avaiable!§7 /fps -> Links -> GitHub" }
-        else { message = "Why are you in the future?!?" }
+        var message = if (newVersion == version) return
+        else if (newVersion >= version) {
+            "Version $updateJson available!§7 /fps -> Links -> GitHub"
+        } else {
+            "Why are you in the future?!?"
+        }
         message = "$PREFIX §a$message"
         UChat.chat(message)
     }
