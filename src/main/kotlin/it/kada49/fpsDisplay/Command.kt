@@ -10,7 +10,7 @@ class Command: CommandBase() {
     override fun processCommand(sender: ICommandSender?, args: Array<String>) {
         if (args.isEmpty()) { FpsMod.gui = Configuration.gui() }
         if (args.isNotEmpty()) {
-            if (args[0] == "update") Update().checkForModUpdates()
+            if (args[0] == "update") Update().checkForModUpdates(true)
         }
 
     }

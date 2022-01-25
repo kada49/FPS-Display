@@ -13,14 +13,19 @@ class Update {
     private val minecraft = Minecraft.getMinecraft()
     private var hasTriggered = false
 
-    fun checkForModUpdates() {
+    fun checkForModUpdates(upToDateNotification: Boolean = false) {
+
+        val json = Utils.fetchHypixelApi("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest")
+        val recommended = json.get("promos").asJsonObject.get("1.8.9-recommended").toString().replace('"'.toString(), "").replace(".", "").toInt()
         val version = Constants.Data.VERSION.replace(".", "").toInt()
-        val updateJson = Utils.fetchHypixelApi("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest").get("promos").asJsonObject.get("1.8.9-latest").toString().replace('"'.toString(), "")
+        val updateJson = json.get("promos").asJsonObject.get("1.8.9-latest").toString().replace('"'.toString(), "")
         val newVersion = updateJson.replace(".", "").toInt()
 
-        var message = if (newVersion == version) return
-        else if (newVersion >= version) "Version $updateJson available!§7 /fps -> Links -> GitHub"
+        var message = if (newVersion == version) {
+            if (upToDateNotification) "Mod UP-TO-DATE! (${Constants.Data.VERSION})" else return
+        } else if (newVersion >= version) "Version $updateJson available!${if (recommended != newVersion) "(Not recommended!)" else ""}§f /fps -> Links -> GitHub"
         else "Why are you in the future?!?"
+
         message = "$PREFIX §a$message"
         UChat.chat(message)
     }

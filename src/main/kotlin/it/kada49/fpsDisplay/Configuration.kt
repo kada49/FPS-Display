@@ -12,15 +12,15 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     @Property(
         type = PropertyType.SWITCH,
         name = "Toggle FPS Display",
-        description = "Enable or Disable the FPS Display",
+        description = "Enable or Disable the FPS Counter Display",
         category = "Personalisation"
     )
     var toggleSwitch = true
 
     @Property(
         type = PropertyType.COLOR,
-        name = "Color of the FPS Display text",
-        description = "Select a color from the whole palette to match the FPS Display text onscreen.",
+        name = "Color of the FPS Counter",
+        description = "Select a color from the whole palette to match the FPS Counter text onscreen.",
         category = "Personalisation"
     )
     var fpsColor = Color(255, 255, 255)
@@ -28,7 +28,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     @Property(
         type = PropertyType.SWITCH,
         name = "Shadow to the FPS Display text",
-        description = "Enable or disable a shadow to the FPS Display text.",
+        description = "Enable or disable a shadow to the FPS Counter.",
         category = "Personalisation"
     )
     var shadowSwitch = true
@@ -48,6 +48,15 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         category = "Personalisation"
     )
     var  suffixSwitch = true
+
+    @Property(
+        type = PropertyType.SELECTOR,
+        name = "Positioning of the FPS Counter",
+        description = "Select one of the available positioning for the FPS Counter.",
+        options = ["Top Left", "Top Right", "Bottom Left", "Bottom Right"],
+        category = "Personalisation"
+    )
+    var positionSelector = 0
 
     @Property(
         type = PropertyType.BUTTON,
