@@ -6,11 +6,11 @@ The FPS Display Mod is made to be used with the Minecraft Forge Loader for the M
 The mod can display an FPS Counter on one of the four corners. When you open the chat and have the Counter on one of the bottom corners it dissapears to see chat better. Until now (version 0.3.0) you can personalise the color of the text, toggle a shadow, enable or disable the suffix/prefix.
 
 ![2022-01-28_13 52 01](https://user-images.githubusercontent.com/45010661/151667898-2cbe58bc-4bd1-45cd-b552-58200353fbcc.png)
-You can check if a new version is available by typing '/fps update' or automatically when joining a world/server for the first time after launching the game (Nothing will appear if the mod is up-to-date).
+You can check if a new version is available by typing `/fps update` or automatically when joining a world/server for the first time after launching the game (Nothing will appear if the mod is up-to-date).
 
 ## Configuration
 ![2022-01-28_13 49 23](https://user-images.githubusercontent.com/45010661/151667965-5874fe55-3098-4674-8a1c-2dfabd7ea9b4.png)
-In the configuration (accessed with '/fps') you can personalise the Counter how much you want.
+In the configuration (accessed with `/fps`) you can personalise the Counter how much you want.
 
 ![2022-01-28_13 49 33](https://user-images.githubusercontent.com/45010661/151667974-21e205d7-cbba-446b-b434-69065255d277.png)
 There are also links to the Github repository and the Discord server.
@@ -27,5 +27,5 @@ If you already have already an installation of Forge 1.8.9 - 11.15.1.2318 or lat
 7. To install Forge you will need Java: open [this link](https://www.java.com/en/download/) and scroll down a little bit until you see a red button called **Agree and Start Free Download**.
 8. Open the downloaded file and follow the installation process.
 9. Now open the before downloaded Installer for Forge, check **Install Client** and click **OK**. Wait until the installatio is done, then close the installer.
-10. If you are on Windows type WIN + R, enter '%AppData%' and press enter. Navigate to the .minecraft/mods folder and paste the downoaded mod from [here](https://github.com/kada49/FPS-Display/releases/latest) in this folder.
+10. If you are on Windows type WIN + R, enter `%AppData%` and press enter. Navigate to the .minecraft/mods folder and paste the downoaded mod from [here](https://github.com/kada49/FPS-Display/releases/latest) in this folder.
 11. Now start the Minecraft launcher and run the Forge Installation.
