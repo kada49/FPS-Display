@@ -27,5 +27,5 @@ If you already have already an installation of Forge 1.8.9 - 11.15.1.2318 or lat
 7. To install Forge you will need Java: open [this link](https://www.java.com/en/download/) and scroll down a little bit until you see a red button called **Agree and Start Free Download**.
 8. Open the downloaded file and follow the installation process.
 9. Now open the before downloaded Installer for Forge, check **Install Client** and click **OK**. Wait until the installatio is done, then close the installer.
-10. If you are on Windows type WIN + R, enter %AppData% end press enter. Nagigate to the .minecraft/mods folder and paste the downoaded mod from [here](https://github.com/kada49/FPS-Display/releases/latest) in this folder.
+10. If you are on Windows type WIN + R, enter '%AppData%' and press enter. Navigate to the .minecraft/mods folder and paste the downoaded mod from [here](https://github.com/kada49/FPS-Display/releases/latest) in this folder.
 11. Now start the Minecraft launcher and run the Forge Installation.
