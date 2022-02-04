@@ -51,7 +51,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
 
     @Property(
         type = PropertyType.SELECTOR,
-        name = "Positioning of the FPS Counter",
+        name = "Positioning",
         description = "Select one of the available positioning for the FPS Counter.",
         options = ["Top Left", "Top Right", "Bottom Left", "Bottom Right"],
         category = "Personalisation"
@@ -59,9 +59,19 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     var positionSelector = 0
 
     @Property(
+        type = PropertyType.SLIDER,
+        name = "Scale",
+        description = "Change the scale of the FPS Counter.",
+        min = 1,
+        max = 2,
+        category = "Personalisation"
+    )
+var scaleSlider = 1
+
+    @Property(
         type = PropertyType.BUTTON,
         name = "GitHub",
-        description = "Official download of the Mod and official opensource source code download.",
+        description = "Official download of the Mod and official open source code download.",
         placeholder = "Open",
         category = "Links"
     )
@@ -70,11 +80,11 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     @Property(
         type = PropertyType.BUTTON,
         name = "Discord",
-        description = "Join the official Discord Server to suggest features, discuss and report bugs and discuss!",
-        placeholder = "Join",
+        description = "If you discover any bugs, issues, or have ideas for future projects DM me on Discord: kada49#4224 !",
+        placeholder = "No-Use-Button",
         category = "Links"
     )
-    fun discordButton() = Utils.openUrl("https://Discord.gg/DtB3vEfX4R")
+    fun discordButton() = ""
 
 
     init { initialize() }
