@@ -3,7 +3,7 @@ The FPS Display Mod is made to be used with the Minecraft Forge Loader for the M
 
 ## Features
 ![2022-01-28_13 52 33](https://user-images.githubusercontent.com/45010661/151667870-b5dfce33-999c-4071-b29a-33aa92c94e62.png)
-The mod can display an FPS Counter on one of the four corners. When you open the chat and have the Counter on one of the bottom corners it dissapears to see chat better. Until now (version 0.3.0) you can personalise the color of the text, toggle a shadow, enable or disable the suffix/prefix.
+The mod can display an FPS Counter on one of the four corners. When you open the chat and have the Counter on one of the bottom corners it dissapears to see chat better. Until now (version 0.4.0) you can personalise the color of the text, toggle a shadow, enable or disable the suffix/prefix and change the scale.
 
 ![2022-01-28_13 52 01](https://user-images.githubusercontent.com/45010661/151667898-2cbe58bc-4bd1-45cd-b552-58200353fbcc.png)
 You can check if a new version is available by typing `/fps update` or automatically when joining a world/server for the first time after launching the game (Nothing will appear if the mod is up-to-date).
