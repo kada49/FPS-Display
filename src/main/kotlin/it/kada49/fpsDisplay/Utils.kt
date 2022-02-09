@@ -11,13 +11,12 @@ import java.net.URI
 
 object Utils {
 
-    fun fetchHypixelApi(url: String): JsonObject {
+    fun fetchJson(url: String): JsonObject {
         val gson = JsonParser()
         var result: String? = null
 
         val client = OkHttpClient()
         try {
-
             val request = Request.Builder().url(url).build()
             val response = client.newCall(request).execute()
             result = response.body?.string()
@@ -29,6 +28,6 @@ object Utils {
     fun openUrl(url: String) {
         try {
             Desktop.getDesktop().browse( URI(url) )
-        } catch (exception: Exception) {}
+        } catch (_: Exception) {}
     }
 }

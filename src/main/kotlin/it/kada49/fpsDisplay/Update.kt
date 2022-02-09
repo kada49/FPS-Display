@@ -15,19 +15,27 @@ class Update {
 
     fun checkForModUpdates(upToDateNotification: Boolean = false) {
 
-        val json = Utils.fetchHypixelApi("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest")
-        val recommended = json.get("promos").asJsonObject.get("1.8.9-recommended").toString().replace('"'.toString(), "").replace(".", "").toInt()
-        val version = Constants.Data.VERSION.replace(".", "").toInt()
-        val updateJson = json.get("promos").asJsonObject.get("1.8.9-latest").toString().replace('"'.toString(), "")
-        val newVersion = updateJson.replace(".", "").toInt()
+        val updateJson = Utils.fetchJson("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest")
 
-        var message = if (newVersion == version) {
-            if (upToDateNotification) "Mod UP-TO-DATE! (${Constants.Data.VERSION})" else return
-        } else if (newVersion >= version) "Version $updateJson available!${if (recommended != newVersion) "(Not recommended!)" else ""}§f /fps -> Links -> GitHub"
-        else "Why are you in the future?!?"
+        val recommendedNumber = updateJson.get("promos").asJsonObject.get("1.8.9-recommended").toString()
+            .replace('"'.toString(), "")
+            .replace(".", "").toInt()
+        val thisVersionNumber = Constants.Data.VERSION
+            .replace(".", "").toInt()
+        val latest = updateJson.get("promos").asJsonObject.get("1.8.9-latest").toString()
+            .replace('"'.toString(), "")
+        val latestNumber = latest.replace(".", "").toInt()
 
-        message = "$PREFIX §a$message"
-        UChat.chat(message)
+        var message = ""
+
+        if (latestNumber == thisVersionNumber) {
+            if (upToDateNotification) message = "Mod UP-TO-DATE! (${Constants.Data.VERSION})"
+        } else if (latestNumber >= thisVersionNumber) {
+            if (recommendedNumber != latestNumber) { message = "Version $latest available! (Not recommended!) §f /fps -> Links -> GitHub" }
+            else { message = "Version $latest available! §f /fps -> Links -> GitHub" }
+        } else { message = "Why are you in the future?!?" }
+
+    if (message != "") { UChat.chat("$PREFIX §a$message") }
     }
 
 
