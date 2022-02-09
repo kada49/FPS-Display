@@ -47,7 +47,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         description = "Enable or disable the 'FPS' suffix after the FPS Counter.",
         category = "Personalisation"
     )
-    var  suffixSwitch = true
+    var suffixSwitch = true
 
     @Property(
         type = PropertyType.SELECTOR,
@@ -63,10 +63,10 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         name = "Scale",
         description = "Change the scale of the FPS Counter.",
         min = 1,
-        max = 2,
+        max = 3,
         category = "Personalisation"
     )
-var scaleSlider = 1
+    var scaleSlider = 1
 
     @Property(
         type = PropertyType.BUTTON,
@@ -75,7 +75,8 @@ var scaleSlider = 1
         placeholder = "Open",
         category = "Links"
     )
-    fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+    @Suppress("unused") fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+
 
     @Property(
         type = PropertyType.BUTTON,
@@ -84,7 +85,7 @@ var scaleSlider = 1
         placeholder = "No-Use-Button",
         category = "Links"
     )
-    fun discordButton() = ""
+    @Suppress("unused") fun discordButton() = ""
 
 
     init { initialize() }

@@ -15,15 +15,17 @@ class Display {
     @SubscribeEvent
     fun fps(event: RenderGameOverlayEvent.Post) {
 
+        if (
+            !Configuration.toggleSwitch ||
+            minecraft.gameSettings.showDebugInfo ||
+            event.type != RenderGameOverlayEvent.ElementType.TEXT ||
+            ( Configuration.positionSelector == 2 && minecraft.ingameGUI.chatGUI.chatOpen ) ||
+            ( Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen )
+        ) return
+
         val fpsText = Minecraft.getDebugFPS().toString()
-
-        if (minecraft.gameSettings.showDebugInfo) return
-        if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return
-        if (!Configuration.toggleSwitch) return
-        if (Configuration.positionSelector == 2 && minecraft.ingameGUI.chatGUI.chatOpen) return
-        if (Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen) return
-
         val displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
+
         GlStateManager.pushMatrix()
             GlStateManager.translate(position("x", displayFPS, scaleSlider.toFloat()).toDouble(), position("y", displayFPS, scaleSlider.toFloat()).toDouble(), 0.0)
             GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())

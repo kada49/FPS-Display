@@ -15,6 +15,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 
 object FpsMod{
 
+    var vigilantGui: UScreen? = null
+
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent){
 
@@ -36,15 +38,11 @@ object FpsMod{
     }
 
     private fun tick() {
-        if (gui != null) {
-            try {
-                UMinecraft.getMinecraft().displayGuiScreen(gui)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-            gui = null
+        if (vigilantGui != null) {
+            try { UMinecraft.getMinecraft().displayGuiScreen(vigilantGui) } catch (e: Exception) { e.printStackTrace() }
+            vigilantGui = null
         }
     }
 
-    var gui: UScreen? = null
+
 }

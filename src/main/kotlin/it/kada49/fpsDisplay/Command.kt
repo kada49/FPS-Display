@@ -8,7 +8,7 @@ class Command: CommandBase() {
     override fun getRequiredPermissionLevel(): Int = 0
     override fun getCommandUsage(sender: ICommandSender?): String = "/fps = Setup for the ${Constants.Data.NAME} Mod configuration"
     override fun processCommand(sender: ICommandSender?, args: Array<String>) {
-        if (args.isEmpty()) { FpsMod.gui = Configuration.gui() }
+        if (args.isEmpty()) { FpsMod.vigilantGui = Configuration.gui() }
         if (args.isNotEmpty()) {
             if (args[0] == "update") Update().checkForModUpdates(true)
         }
