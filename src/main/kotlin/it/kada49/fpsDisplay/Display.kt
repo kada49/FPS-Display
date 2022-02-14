@@ -2,10 +2,11 @@ package it.kada49.fpsDisplay
 
 import it.kada49.fpsDisplay.Configuration.scaleSlider
 import net.minecraft.client.Minecraft
-import net.minecraft.client.gui.ScaledResolution
+import net.minecraft.client.gui.Gui.drawRect
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import java.awt.Color
 
 
 class Display {
@@ -26,8 +27,15 @@ class Display {
         val fpsText = Minecraft.getDebugFPS().toString()
         val displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
 
+        val hoverColor = Color(Configuration.backgroundColor.red, Configuration.backgroundColor.green, Configuration.backgroundColor.blue, Configuration.alphaSlider).rgb
+
         GlStateManager.pushMatrix()
-            GlStateManager.translate(position("x", displayFPS, scaleSlider.toFloat()).toDouble(), position("y", displayFPS, scaleSlider.toFloat()).toDouble(), 0.0)
+            GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
+            if (Configuration.backgroundSwitch) drawRect((4 - Configuration.edgeSlider) / scaleSlider, (4 - Configuration.edgeSlider) / scaleSlider, minecraft.fontRendererObj.getStringWidth(displayFPS) -1 + (2 + 2 * Configuration.edgeSlider) / scaleSlider, 7 + (2 + 2 * Configuration.edgeSlider) / scaleSlider, hoverColor)
+        GlStateManager.popMatrix()
+
+        GlStateManager.pushMatrix()
+            GlStateManager.translate(Utils.position("x", displayFPS, scaleSlider.toFloat()).toDouble(), Utils.position("y", displayFPS, scaleSlider.toFloat()).toDouble(), 0.0)
             GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
             minecraft.fontRendererObj.drawString(
                 displayFPS,
@@ -37,25 +45,5 @@ class Display {
             )
         GlStateManager.popMatrix()
 
-    }
-
-    private fun position(Axis: String, Text: String, scale: Float): Float {
-
-        val textHeight = 8
-        val textWidth = minecraft.fontRendererObj.getStringWidth(Text)
-        var pixels = 0F
-        if (Axis == "x") {
-            when (Configuration.positionSelector) {
-                0, 2 -> pixels = 4F
-                1, 3 -> pixels = ( minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - (4 + (textWidth - 1) * scale ) )
-            }
-        }
-        if (Axis == "y") {
-            when (Configuration.positionSelector) {
-                0, 1 -> pixels = 4F
-                2, 3 -> pixels = ( minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - (4 + (textHeight - 1) * scale ) )
-            }
-        }
-        return pixels
     }
 }

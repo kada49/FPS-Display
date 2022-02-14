@@ -32,7 +32,7 @@ object FpsMod{
         ClientCommandHandler.instance.registerCommand(Command())
     }
 
-    @SubscribeEvent
+    @SubscribeEvent @Suppress("unused")
     fun tick(event: TickEvent.ClientTickEvent) {
         tick()
     }

@@ -69,6 +69,46 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     var scaleSlider = 1
 
     @Property(
+        type = PropertyType.SWITCH,
+        name = "Toggle Background",
+        description = "Enable or disable a background color.",
+        category = "Personalisation",
+        subcategory = "Background"
+    )
+    var backgroundSwitch = true
+
+    @Property(
+        type = PropertyType.COLOR,
+        name = "Color of the Background",
+        description = "Pick a color for for the background.",
+        category = "Personalisation",
+        subcategory = "Background"
+    )
+    var backgroundColor = Color(211, 211, 211)
+
+    @Property(
+        type = PropertyType.SLIDER,
+        name = "Alpha value",
+        description = "Set an alpha value for the background.",
+        min = 1,
+        max = 255,
+        category = "Personalisation",
+        subcategory = "Background"
+    )
+    var alphaSlider = 64
+
+    @Property(
+        type = PropertyType.SLIDER,
+        name = "Outer edge of the background",
+        description = "Set the value for the size of the edge over the FPS Counter.",
+        min = 2,
+        max = 4,
+        category = "Personalisation",
+        subcategory = "Background"
+    )
+    var edgeSlider = 2
+
+    @Property(
         type = PropertyType.BUTTON,
         name = "GitHub",
         description = "Official download of the Mod and official open source code download.",
@@ -76,7 +116,6 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         category = "Links"
     )
     @Suppress("unused") fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
-
 
     @Property(
         type = PropertyType.BUTTON,
@@ -89,7 +128,6 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
 
 
     init { initialize() }
-
 }
 
 class ConfigSorting : SortingBehavior() {
@@ -104,6 +142,8 @@ class ConfigSorting : SortingBehavior() {
     @NotNull
     override fun getPropertyComparator(): Comparator<in PropertyData> {
         return Comparator {o1: PropertyData, o2: PropertyData ->
+            if (o1.attributesExt.name == "Toggle Background") { return@Comparator 1 }
+
             if (o1.attributesExt.name == "GitHub") { return@Comparator -1 }
             if (o1.attributesExt.name == "Toggle FPS Display") { return@Comparator -1 }
             if (o2.attributesExt.name == "GitHub") { return@Comparator 1 }

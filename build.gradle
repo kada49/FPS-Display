@@ -12,6 +12,9 @@ archivesBaseName = "FPS-Display"
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 compileJava.options.encoding = 'UTF-8'
 
+/**
+ * This task simply moves resources so they can be accessed at runtime, Forge is quite weird isn't it
+ */
 sourceSets {
     main {
         output.resourcesDir = java.outputDir
