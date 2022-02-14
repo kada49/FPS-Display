@@ -1,5 +1,6 @@
 package it.kada49.fpsDisplay
 
+//import it.kada49.fpsDisplay.Configuration.edgeSlider
 import it.kada49.fpsDisplay.Configuration.scaleSlider
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui.drawRect
@@ -26,16 +27,17 @@ class Display {
 
         val fpsText = Minecraft.getDebugFPS().toString()
         val displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
-
-        val hoverColor = Color(Configuration.backgroundColor.red, Configuration.backgroundColor.green, Configuration.backgroundColor.blue, Configuration.alphaSlider).rgb
+/*
+        val backgroundColor = Color(Configuration.backgroundColor.red, Configuration.backgroundColor.green, Configuration.backgroundColor.blue, Configuration.alphaSlider).rgb
+        val boxPosition = Utils.boxPosition(displayFPS, edgeSlider, scaleSlider)
 
         GlStateManager.pushMatrix()
             GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
-            if (Configuration.backgroundSwitch) drawRect((4 - Configuration.edgeSlider) / scaleSlider, (4 - Configuration.edgeSlider) / scaleSlider, minecraft.fontRendererObj.getStringWidth(displayFPS) -1 + (2 + 2 * Configuration.edgeSlider) / scaleSlider, 7 + (2 + 2 * Configuration.edgeSlider) / scaleSlider, hoverColor)
+            if (Configuration.backgroundSwitch) drawRect(boxPosition[0], boxPosition[1], boxPosition[2], boxPosition[3], backgroundColor)
         GlStateManager.popMatrix()
-
+*/
         GlStateManager.pushMatrix()
-            GlStateManager.translate(Utils.position("x", displayFPS, scaleSlider.toFloat()).toDouble(), Utils.position("y", displayFPS, scaleSlider.toFloat()).toDouble(), 0.0)
+            GlStateManager.translate(Utils.textPosition("x", displayFPS, scaleSlider.toFloat()).toDouble(), Utils.textPosition("y", displayFPS, scaleSlider.toFloat()).toDouble(), 0.0)
             GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
             minecraft.fontRendererObj.drawString(
                 displayFPS,
