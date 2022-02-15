@@ -15,7 +15,7 @@ class Update {
 
     fun checkForModUpdates(upToDateNotification: Boolean = false) {
 
-        val updateJson = Utils.fetchJson("https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest")
+        val updateJson = Utils.fetchJson("https://api.jsonstorage.net/v1/json/43187124-5250-4d1f-b4e7-65ea8e411651/8ab2e620-19a5-4f31-931e-7c9fc359fcf6")
 
         val recommendedNumber = updateJson.get("promos").asJsonObject.get("1.8.9-recommended").toString()
             .replace('"'.toString(), "")
@@ -35,7 +35,7 @@ class Update {
             else { message = "Version $latest available! §f /fps -> Links -> GitHub" }
         } else { message = "Why are you in the future?!?" }
 
-    if (message != "") { UChat.chat("$PREFIX §a$message") }
+        if (message != "") { UChat.chat("$PREFIX §a$message") }
     }
 
 

@@ -34,14 +34,14 @@ class Display {
         if (Configuration.backgroundSwitch) drawRect(boxPosition[0], boxPosition[1], boxPosition[2], boxPosition[3], backgroundColor)
 
         GlStateManager.pushMatrix()
-            GlStateManager.translate(Utils.textPosition("x", displayFPS, scaleSlider).toDouble(), Utils.textPosition("y", displayFPS, scaleSlider).toDouble(), 0.0)
-            GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
-            minecraft.fontRendererObj.drawString(
-                displayFPS,
-                0F,
-                0F,
-                Configuration.fpsColor.rgb, Configuration.shadowSwitch
-            )
+        GlStateManager.translate(Utils.textPosition("x", displayFPS, scaleSlider).toDouble(), Utils.textPosition("y", displayFPS, scaleSlider).toDouble(), 0.0)
+        GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
+        minecraft.fontRendererObj.drawString(
+            displayFPS,
+            0F,
+            0F,
+            Configuration.fpsColor.rgb, Configuration.shadowSwitch
+        )
         GlStateManager.popMatrix()
 
     }

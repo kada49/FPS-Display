@@ -5,16 +5,13 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
-version = "0.5.0"
+version = "0.5.1"
 group = "it.kada49.fpsDisplay"
 archivesBaseName = "FPS-Display"
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 compileJava.options.encoding = 'UTF-8'
 
-/**
- * This task simply moves resources so they can be accessed at runtime, Forge is quite weird isn't it
- */
 sourceSets {
     main {
         output.resourcesDir = java.outputDir
@@ -66,6 +63,21 @@ processResources {
     }
 }
 
+/**
+ * This task simply moves resources so they can be accessed at runtime, Forge is quite weird isn't it
+ */
+
+/*
+task moveResources {
+    doLast {
+        ant.move file: "${buildDir}/resources/main",
+                todir: "${buildDir}/classes/java"
+    }
+}
+
+moveResources.dependsOn processResources
+classes.dependsOn moveResources
+*/
 // This adds support to ("embed", "shade", "include") libraries into our JAR
 shadowJar {
     archiveClassifier.set('')
