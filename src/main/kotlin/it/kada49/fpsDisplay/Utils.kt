@@ -33,7 +33,7 @@ object Utils {
         } catch (_: Exception) {}
     }
 
-    fun textPosition(Axis: String, Text: String, scale: Float): Float {
+    fun textPosition(Axis: String, Text: String, scale: Int): Float {
 
         val minecraft = Minecraft.getMinecraft()
 
@@ -43,13 +43,13 @@ object Utils {
         if (Axis == "x") {
             when (Configuration.positionSelector) {
                 0, 2 -> pixels = 4F
-                1, 3 -> pixels = ( minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - (4 + (textWidth - 1) * scale ) )
+                1, 3 -> pixels = ( minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - (4 + (textWidth - 1) * scale ) ).toFloat()
             }
         }
         if (Axis == "y") {
             when (Configuration.positionSelector) {
                 0, 1 -> pixels = 4F
-                2, 3 -> pixels = ( minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - (4 + (textHeight - 1) * scale ) )
+                2, 3 -> pixels = ( minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - (4 + (textHeight - 1) * scale ) ).toFloat()
             }
         }
         return pixels
@@ -58,8 +58,8 @@ object Utils {
     fun boxPosition(Text: String, edge: Int, scale: Int): Array<Int> {
 
         val minecraft = Minecraft.getMinecraft()
-        val textHeight = 8
-        val textWidth = minecraft.fontRendererObj.getStringWidth(Text)
+        val textHeight = 7
+        val textWidth = minecraft.fontRendererObj.getStringWidth(Text) - 1
 
         var left = 0
         var right = 0
@@ -68,28 +68,28 @@ object Utils {
 
         when (Configuration.positionSelector) {
             0 -> {
-                left = (4 - edge) / scale
-                right = textWidth - 1 + ((4 - edge) + 2 * edge) / scale
-                top = (4 - edge) / scale
-                bottom = textHeight - 1 + ((4 - edge) + 2 * edge) / scale
+                left = 4 - edge
+                right = 4 + textWidth * scale + edge
+                top = 4 - edge
+                bottom = 4 + textHeight * scale + edge
             }
             1 -> {
-                left = minecraft.displayWidth / (ScaledResolution(minecraft).scaleFactor * scale) - (textWidth - 1) - (2 + 2 * edge) / scale
-                right = minecraft.displayWidth / (ScaledResolution(minecraft).scaleFactor * scale) - ((4 - edge) / scale)
-                top = (4 - edge) / scale
-                bottom = textHeight - 1 + ((4 - edge) + 2 * edge) / scale
+                left = minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - 4 - edge - textWidth * scale
+                right = minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - 4 + edge
+                top = 4 - edge
+                bottom = 4 + textHeight * scale + edge
             }
             2 -> {
-                left = (4 - edge) / scale
-                right = textWidth - 1 + ((4 - edge) + 2 * edge) / scale
-                top = minecraft.displayHeight / (ScaledResolution(minecraft).scaleFactor * scale) - (textHeight - 1) - ((4 - edge) + 2 * edge) / scale
-                bottom = minecraft.displayHeight / (ScaledResolution(minecraft).scaleFactor * scale) - (4 - edge) / scale
+                left = 4 - edge
+                right = 4 + textWidth * scale + edge
+                top = minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - 4 - edge - textHeight * scale
+                bottom = minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - 4 + edge
             }
             3 -> {
-                left = minecraft.displayWidth / (ScaledResolution(minecraft).scaleFactor * scale) - (textWidth - 1) - 4 / scale
-                right = minecraft.displayWidth / (ScaledResolution(minecraft).scaleFactor * scale) - ((4 - edge) / scale)
-                top = minecraft.displayHeight / (ScaledResolution(minecraft).scaleFactor * scale) - (textHeight - 1) - ((4 - edge) + 2 * edge) / scale
-                bottom = minecraft.displayHeight / (ScaledResolution(minecraft).scaleFactor * scale) - (4 - edge) / scale
+                left = minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - 4 - edge - textWidth * scale
+                right = minecraft.displayWidth / ScaledResolution(minecraft).scaleFactor - 4 + edge
+                top = minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - 4 - edge - textHeight * scale
+                bottom = minecraft.displayHeight / ScaledResolution(minecraft).scaleFactor - 4 + edge
             }
         }
         return arrayOf(left, top, right, bottom)

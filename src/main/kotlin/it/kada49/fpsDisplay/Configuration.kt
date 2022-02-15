@@ -67,7 +67,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         category = "Personalisation"
     )
     var scaleSlider = 1
-/*
+
     @Property(
         type = PropertyType.SWITCH,
         name = "Toggle Background",
@@ -107,7 +107,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         subcategory = "Background"
     )
     var edgeSlider = 2
-*/
+
     @Property(
         type = PropertyType.BUTTON,
         name = "GitHub",
