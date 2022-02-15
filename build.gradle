@@ -41,7 +41,7 @@ configurations {
 dependencies {
     include "com.squareup.okhttp3:okhttp:4.9.3"
     include "gg.essential:loader-launchwrapper:1.1.3"
-    implementation "gg.essential:essential-1.8.9-forge:1872"
+    implementation "gg.essential:essential-1.8.9-forge:184"
 }
 
 /**
