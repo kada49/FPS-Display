@@ -1,8 +1,8 @@
 [
   {
-    "modid": "FPS",
+    "modid": "fps",
     "name": "FPS Display",
-    "description": "Let's you set up a FPS Counter in different positions on your screen, change color and more! You can access the configuration with the command '/fps'. To check if there is an update available type '/fps update'",
+    "description": "Lets you set up a FPS Counter in different positions on your screen, change color and more! You can access the configuration with the command '/fps'. To check if there is an update available type '/fps update'",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://github.com/kada49/FPS-Display/releases/latest",
