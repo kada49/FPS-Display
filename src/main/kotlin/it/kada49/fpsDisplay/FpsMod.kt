@@ -17,7 +17,7 @@ object FpsMod{
 
     var vigilantGui: UScreen? = null
 
-    @Mod.EventHandler
+    @Mod.EventHandler @Suppress("unused")
     fun init(event: FMLInitializationEvent){
 
         Constants.Data.LOGGER.info("Initialisation started for ${event.side}")

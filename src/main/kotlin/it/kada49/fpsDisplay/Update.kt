@@ -40,7 +40,7 @@ class Update {
 
 
     // Copied from MegaWallsEnhancements Mod: https://github.com/Alexdoru/MegaWallsEnhancements
-    @SubscribeEvent
+    @SubscribeEvent @Suppress("unused")
     fun onTick(event: ClientTickEvent?) {
         if (minecraft.theWorld != null && minecraft.thePlayer != null && !hasTriggered) {
             hasTriggered = true

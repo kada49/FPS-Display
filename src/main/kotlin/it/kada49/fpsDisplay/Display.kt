@@ -14,7 +14,7 @@ class Display {
 
     private val minecraft: Minecraft = Minecraft.getMinecraft()
 
-    @SubscribeEvent
+    @SubscribeEvent @Suppress("unused")
     fun fps(event: RenderGameOverlayEvent.Post) {
 
         if (
