@@ -25,6 +25,9 @@ object Utils {
         return gson.parse(result) as JsonObject
     }
 
+    /**
+     * Opens the given URL in the predefined browser.
+     */
     fun openUrl(url: String) {
         try {
             Desktop.getDesktop().browse( URI(url) )

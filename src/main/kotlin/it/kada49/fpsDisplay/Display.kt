@@ -17,6 +17,9 @@ class Display {
     @SubscribeEvent @Suppress("unused")
     fun fps(event: RenderGameOverlayEvent.Post) {
 
+        /**
+         * Conditions for not showing the overlay.
+         */
         if (
             !Configuration.toggleSwitch ||
             minecraft.gameSettings.showDebugInfo ||
@@ -25,23 +28,30 @@ class Display {
             ( Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen )
         ) return
 
+        /**
+         * Get the frames number and creates the text to be shown.
+         */
         val fpsText = Minecraft.getDebugFPS().toString()
         val displayFPS = "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
 
+        /**
+         * Sets the background colour and position.
+         */
         val backgroundColor = Color(Configuration.backgroundColor.red, Configuration.backgroundColor.green, Configuration.backgroundColor.blue, Configuration.alphaSlider).rgb
         val boxPosition = Utils.boxPosition(displayFPS, edgeSlider, scaleSlider)
 
+        /**
+         * Draws the background rectangle.
+         */
         if (Configuration.backgroundSwitch) drawRect(boxPosition[0], boxPosition[1], boxPosition[2], boxPosition[3], backgroundColor)
 
+        /**
+         * Draws the overlay text.
+         */
         GlStateManager.pushMatrix()
         GlStateManager.translate(Utils.textPosition("x", displayFPS, scaleSlider).toDouble(), Utils.textPosition("y", displayFPS, scaleSlider).toDouble(), 0.0)
         GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
-        minecraft.fontRendererObj.drawString(
-            displayFPS,
-            0F,
-            0F,
-            Configuration.fpsColor.rgb, Configuration.shadowSwitch
-        )
+        minecraft.fontRendererObj.drawString( displayFPS, 0F, 0F, Configuration.fpsColor.rgb, Configuration.shadowSwitch )
         GlStateManager.popMatrix()
 
     }
