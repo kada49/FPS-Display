@@ -34,6 +34,14 @@ object Utils {
         } catch (_: Exception) {}
     }
 
+    /**
+     * The FPS Overlay Text
+     */
+    fun fpsText(): String {
+        val fpsText = Minecraft.getDebugFPS().toString()
+        return "${if (Configuration.prefixSwitch) "[FPS] " else ""}$fpsText${if (Configuration.suffixSwitch) " FPS" else ""}"
+    }
+
     fun textPosition(Axis: String, Text: String, scale: Int): Float {
 
         val minecraft = Minecraft.getMinecraft()

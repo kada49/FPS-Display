@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 
 @Mod(name = Constants.Data.NAME, modid = Constants.Data.ID, version = Constants.Data.VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter")
 
-object FpsMod{
+object FpsDisplayMod{
 
     var vigilantGui: UScreen? = null
 
@@ -26,7 +26,7 @@ object FpsMod{
         Configuration.preload()
 
         MinecraftForge.EVENT_BUS.register(this)
-        MinecraftForge.EVENT_BUS.register(Display())
+        MinecraftForge.EVENT_BUS.register(RenderOverlay())
         MinecraftForge.EVENT_BUS.register(Update())
 
         ClientCommandHandler.instance.registerCommand(Command())
