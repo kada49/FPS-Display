@@ -27,7 +27,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
 
     @Property(
         type = PropertyType.SWITCH,
-        name = "Shadow to the FPS Display text",
+        name = "Shadow to the FPS Counter text",
         description = "Enable or disable a shadow to the FPS Counter.",
         category = "Personalisation"
     )
@@ -120,8 +120,8 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     @Property(
         type = PropertyType.BUTTON,
         name = "Discord",
-        description = "If you discover any bugs, issues, or have ideas for future projects DM me on Discord: kada49#4224 !",
-        placeholder = "No-Use-Button",
+        description = "If you discover any bugs, issues, or have ideas for more features DM me on Discord:",
+        placeholder = "kada49#4224",
         category = "Links"
     )
     @Suppress("unused") fun discordButton() = ""
@@ -134,20 +134,35 @@ class ConfigSorting : SortingBehavior() {
     @NotNull
     override fun getCategoryComparator(): Comparator<Category> {
         return Comparator { o1: Category, o2: Category ->
+
+            /**
+             * Personalisation category
+             */
             if (o1.name == "Personalisation") { return@Comparator -1 }
             if (o2.name == "Personalisation") { return@Comparator 1 }
+
+
             return@Comparator o1.name.compareTo(o2.name)
         }
     }
     @NotNull
     override fun getPropertyComparator(): Comparator<in PropertyData> {
         return Comparator {o1: PropertyData, o2: PropertyData ->
-            if (o1.attributesExt.name == "Toggle Background") { return@Comparator 1 }
 
+            /**
+             * FPS Counter text
+             */
             if (o1.attributesExt.name == "GitHub") { return@Comparator -1 }
             if (o1.attributesExt.name == "Toggle FPS Display") { return@Comparator -1 }
             if (o2.attributesExt.name == "GitHub") { return@Comparator 1 }
             if (o2.attributesExt.name == "Toggle FPS Display") { return@Comparator 1 }
+
+            /**
+             * FPS Counter background
+             */
+            if (o2.attributesExt.name == "Toggle Background") { return@Comparator 1 }
+
+
             return@Comparator o1.attributesExt.name.compareTo(o2.attributesExt.name)
         }
     }
