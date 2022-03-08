@@ -37,7 +37,7 @@ configurations {
 
 dependencies {
     include "gg.essential:loader-launchwrapper:1.1.3"
-    implementation "gg.essential:essential-1.8.9-forge:1933"
+    implementation "gg.essential:essential-1.8.9-forge:2069"
 }
 
 /**
