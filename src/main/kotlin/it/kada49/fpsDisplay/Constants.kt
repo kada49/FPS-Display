@@ -14,7 +14,7 @@ class Constants {
         /**
          * The mod version.
          */
-        const val VERSION = "0.5.1"
+        const val VERSION = "1.0.0"
 
         /**
          * The mod id.
