@@ -25,4 +25,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "FPS_Display"
+rootProject.name = "FPS-Display"
