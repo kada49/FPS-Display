@@ -29,7 +29,7 @@ class Constants {
         /**
          * The Minecraft version.
          */
-        const val MC_VERSION: String = "1.8.9"
+        val MC_VERSION: String = "1.8.9"
 
         val LOGGER: Logger = LogManager.getLogger(ID)
     }
