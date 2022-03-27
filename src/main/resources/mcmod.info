@@ -7,9 +7,7 @@
     "mcversion": "${mcversion}",
     "url": "https://github.com/kada49/FPS-Display/releases/latest",
     "updateUrl": "https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest",
-    "authorList": [
-      "kada49"
-    ],
+    "authorList": ["kada49"],
     "credits": "Many people in the Official Sk1er Discord: https://discord.gg/sk1er",
     "logoFile": "",
     "screenshots": [],
