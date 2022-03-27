@@ -1,6 +1,5 @@
 package it.kada49.fpsDisplay
 
-import net.minecraft.client.Minecraft
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
@@ -30,7 +29,7 @@ class Constants {
         /**
          * The Minecraft version.
          */
-        val MC_VERSION: String = Minecraft.getMinecraft().version
+        const val MC_VERSION: String = "1.8.9"
 
         val LOGGER: Logger = LogManager.getLogger(ID)
     }
