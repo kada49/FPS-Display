@@ -1,8 +1,10 @@
 package it.kada49.fpsDisplay
 
 import gg.essential.universal.UChat
-import it.kada49.fpsDisplay.Constants.Data.PREFIX
-import it.kada49.fpsDisplay.Constants.Data.MC_VERSION
+import it.kada49.fpsDisplay.Constants.IS_BETA
+import it.kada49.fpsDisplay.Constants.PREFIX
+import it.kada49.fpsDisplay.Constants.MC_VERSION
+import it.kada49.fpsDisplay.Constants.VERSION
 import net.minecraft.client.Minecraft
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -24,8 +26,7 @@ class Update {
         val recommendedNumber = updateJson.get("promos").asJsonObject.get("${MC_VERSION}-recommended").toString()
             .replace('"'.toString(), "")
             .replace(".", "").toInt()
-        val thisVersionNumber = Constants.Data.VERSION
-            .replace(".", "").toInt()
+        val thisVersionNumber = VERSION.replace(".", "").toInt()
         val latest = updateJson.get("promos").asJsonObject.get("${MC_VERSION}-latest").toString()
             .replace('"'.toString(), "")
         val latestNumber = latest.replace(".", "").toInt()
@@ -33,12 +34,18 @@ class Update {
         /**
          * Sends the correct message to the player according to the current version and the latest and recommended available version.
          */
-        if (latestNumber == thisVersionNumber) {
-            if (upToDateNotification) UChat.chat("$PREFIX §aMod UP-TO-DATE! (${Constants.Data.VERSION})")
-        } else if (latestNumber >= thisVersionNumber) {
-            if (recommendedNumber != latestNumber) { UChat.chat("$PREFIX §aVersion $latest available! (Not recommended!) §f /fps -> Links -> GitHub") }
-            else { UChat.chat("$PREFIX §aVersion $latest available! §f /fps -> Links -> GitHub") }
-        } else { UChat.chat("$PREFIX §aWhy are you in the future?!?") }
+        if (IS_BETA) { //Beta
+            if (latestNumber < thisVersionNumber) { UChat.chat("$PREFIX §aThis version ($VERSION) is currently a BETA version!") }
+            else { UChat.chat("$PREFIX §aThis version ($VERSION) is currently a BETA version, but a stable release ($latest) is available!") }
+        }
+        else { //Stable release
+            if (latestNumber == thisVersionNumber) {
+                if (upToDateNotification) UChat.chat("$PREFIX §aMod UP-TO-DATE! (${VERSION})")
+            } else if (latestNumber >= thisVersionNumber) {
+                if (recommendedNumber != latestNumber) { UChat.chat("$PREFIX §aVersion $latest available! (Not recommended!) §f /fps -> Links -> GitHub") }
+                else { UChat.chat("$PREFIX §aVersion $latest available! §f /fps -> Links -> GitHub") }
+            } else { UChat.chat("$PREFIX §aWhy are you in the future?!?") }
+        }
 
     }
 
@@ -51,11 +58,7 @@ class Update {
         if (minecraft.theWorld != null && minecraft.thePlayer != null && !hasTriggered) {
             hasTriggered = true
             Thread {
-                try {
-                    checkForModUpdates()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                try { checkForModUpdates() } catch (e: Exception) { e.printStackTrace() }
             }.start()
             MinecraftForge.EVENT_BUS.unregister(this)
         }

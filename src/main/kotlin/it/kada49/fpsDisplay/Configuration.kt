@@ -7,7 +7,7 @@ import java.awt.Color
 import java.io.File
 
 
-object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml"), guiTitle = "${Constants.Data.NAME} (${Constants.Data.VERSION})", sortingBehavior = ConfigSorting()) {
+object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), guiTitle = "${Constants.NAME} (${Constants.VERSION})", sortingBehavior = ConfigSorting()) {
 
     @Property(
         type = PropertyType.SWITCH,
@@ -37,7 +37,8 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         type = PropertyType.SWITCH,
         name = "Toggle prefix",
         description = "Enable or disable the prefix before the FPS Counter.",
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "Text Formatting"
     )
     var prefixSwitch = false
 
@@ -45,15 +46,25 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
         type = PropertyType.SWITCH,
         name = "Toggle suffix",
         description = "Enable or disable the 'FPS' suffix after the FPS Counter.",
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "Text Formatting"
     )
     var suffixSwitch = true
+
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Brackets",
+        description = "Enable or disable brackets around all the FPS Counter text",
+        category = "Personalisation",
+        subcategory = "Text Formatting"
+    )
+    var bracketsSelector = false
 
     @Property(
         type = PropertyType.SELECTOR,
         name = "Positioning",
         description = "Select one of the available positioning for the FPS Counter.",
-        options = ["Top Left", "Top Right", "Bottom Left", "Bottom Right"],
+        options = ["Top Left", "Top Middle", "Top Right", "Bottom Left", "Bottom Right"],
         category = "Personalisation"
     )
     var positionSelector = 0
@@ -88,7 +99,7 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
 
     @Property(
         type = PropertyType.SLIDER,
-        name = "Alpha value",
+        name = "Transparency",
         description = "Set an alpha value for the background.",
         min = 1,
         max = 255,
@@ -127,7 +138,14 @@ object Configuration: Vigilant(file = File("./config/${Constants.Data.ID}.toml")
     @Suppress("unused") fun discordButton() = ""
 
 
-    init { initialize() }
+    init {
+        initialize()
+
+        // Hide some properties if the background is disabled.
+        listOf("edgeSlider", "alphaSlider", "backgroundColor")
+            .forEach { addDependency(it, "backgroundSwitch") }
+    }
+
 }
 
 class ConfigSorting : SortingBehavior() {

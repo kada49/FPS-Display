@@ -3,6 +3,7 @@ package it.kada49.fpsDisplay
 import gg.essential.universal.UMinecraft
 import gg.essential.universal.UScreen
 import gg.essential.vigilance.Vigilance
+import it.kada49.fpsDisplay.Constants.LOGGER
 import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
@@ -11,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
 
-@Mod(name = Constants.Data.NAME, modid = Constants.Data.ID, version = Constants.Data.VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter")
+@Mod(name = Constants.NAME, modid = Constants.ID, version = Constants.VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter")
 
 object FpsDisplayMod{
 
@@ -20,7 +21,7 @@ object FpsDisplayMod{
     @Mod.EventHandler @Suppress("unused")
     fun init(event: FMLInitializationEvent){
 
-        Constants.Data.LOGGER.info("Initialisation started for ${event.side}")
+        LOGGER.info("Initialisation started for ${event.side}")
 
         Vigilance.initialize()
         Configuration.preload()

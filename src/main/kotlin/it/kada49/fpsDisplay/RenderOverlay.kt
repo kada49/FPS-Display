@@ -26,8 +26,8 @@ class RenderOverlay {
             !Configuration.toggleSwitch ||
             minecraft.gameSettings.showDebugInfo ||
             event.type != RenderGameOverlayEvent.ElementType.TEXT ||
-            ( Configuration.positionSelector == 2 && minecraft.ingameGUI.chatGUI.chatOpen ) ||
-            ( Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen )
+            ( Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen ) ||
+            ( Configuration.positionSelector == 4 && minecraft.ingameGUI.chatGUI.chatOpen )
         ) return
 
         /**

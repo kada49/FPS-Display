@@ -4,34 +4,37 @@ import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
 
-class Constants {
-    object Data{
-        /**
-         * The mod name.
-        */
-        const val NAME = "FPS Display"
+object Constants {
+    /**
+     * The mod name.
+     */
+    const val NAME = "FPS Display"
 
-        /**
-         * The mod version.
-         */
-        const val VERSION = "1.0.1"
+    /**
+     * The mod version.
+     */
+    const val VERSION = "1.1.0"
 
-        /**
-         * The mod id.
-         */
-        const val ID = "fps"
+    /**
+     * If this mod is a beta version.
+     */
+    const val IS_BETA = true
 
-        /**
-         * The prefix for all chat messages coming from this mod.
-         */
-        const val PREFIX = "§5[§eFPS§5]"
+    /**
+     * The mod id.
+     */
+    const val ID = "fps"
 
-        /**
-         * The Minecraft version.
-         */
-        val MC_VERSION: String = "1.8.9"
+    /**
+     * The prefix for all chat messages coming from this mod.
+     */
+    const val PREFIX = "§5[§eFPS§5]"
 
-        val LOGGER: Logger = LogManager.getLogger(ID)
-    }
+    /**
+     * The Minecraft version.
+     */
+    const val MC_VERSION: String = "1.8.9"
+
+    val LOGGER: Logger = LogManager.getLogger(ID)
 
 }
