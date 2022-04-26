@@ -18,7 +18,7 @@ object Constants {
     /**
      * If this mod is a beta version.
      */
-    const val IS_BETA = true
+    const val IS_BETA = false
 
     /**
      * The mod id.

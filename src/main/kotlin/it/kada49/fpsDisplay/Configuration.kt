@@ -163,6 +163,20 @@ class ConfigSorting : SortingBehavior() {
             return@Comparator o1.name.compareTo(o2.name)
         }
     }
+
+    @NotNull
+    override fun getSubcategoryComparator(): Comparator<in Map.Entry<String, List<PropertyData>>> {
+        return Comparator { o1: Map.Entry<String, List<PropertyData>>, o2: Map.Entry<String, List<PropertyData>> ->
+
+            /**
+             * Background Subcategory
+             */
+            if (o1.key == "Background") { return@Comparator 1 }
+            if (o2.key == "Background") { return@Comparator -1 }
+
+            return@Comparator o1.key.compareTo(o2.key)
+        }
+    }
     @NotNull
     override fun getPropertyComparator(): Comparator<in PropertyData> {
         return Comparator {o1: PropertyData, o2: PropertyData ->
