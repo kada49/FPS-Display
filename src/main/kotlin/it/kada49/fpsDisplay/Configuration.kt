@@ -34,33 +34,6 @@ object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), gui
     var shadowSwitch = true
 
     @Property(
-        type = PropertyType.SWITCH,
-        name = "Toggle prefix",
-        description = "Enable or disable the prefix before the FPS Counter.",
-        category = "Personalisation",
-        subcategory = "Text Formatting"
-    )
-    var prefixSwitch = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Toggle suffix",
-        description = "Enable or disable the 'FPS' suffix after the FPS Counter.",
-        category = "Personalisation",
-        subcategory = "Text Formatting"
-    )
-    var suffixSwitch = true
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Brackets",
-        description = "Enable or disable brackets around all the FPS Counter text",
-        category = "Personalisation",
-        subcategory = "Text Formatting"
-    )
-    var bracketsSelector = false
-
-    @Property(
         type = PropertyType.SELECTOR,
         name = "Positioning",
         description = "Select one of the available positioning for the FPS Counter.",
@@ -78,6 +51,33 @@ object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), gui
         category = "Personalisation"
     )
     var scaleSlider = 1
+
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Toggle brackets",
+        description = "Enable or disable brackets around all the FPS Counter text",
+        category = "Personalisation",
+        subcategory = "Text Formatting"
+    )
+    var bracketsSelector = false
+
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Toggle prefix",
+        description = "Enable or disable the '[FPS]' prefix before the FPS Number.",
+        category = "Personalisation",
+        subcategory = "Text Formatting"
+    )
+    var prefixSwitch = false
+
+    @Property(
+        type = PropertyType.SWITCH,
+        name = "Toggle suffix",
+        description = "Enable or disable the 'FPS' suffix after the FPS Number.",
+        category = "Personalisation",
+        subcategory = "Text Formatting"
+    )
+    var suffixSwitch = true
 
     @Property(
         type = PropertyType.SWITCH,
