@@ -16,6 +16,9 @@ In the configuration (accessed with `/fps`) you can personalise the Counter how 
 ![2022-05-23_21 28 19](https://user-images.githubusercontent.com/45010661/169893235-0c2d2466-2c50-4e83-a0dc-bd91b7eb469c.png)
 There are also links to the Github repository and my Discord name for support.
 
+## Incopatibilities
+* [FPSSpoofer](https://www.9minecraft.net/fps-spoofer-mod/): Since the FPSSpoofer changes the FPS value displayed any other readout gets a value of 0.
+
 ## Installation
 If you already have already an installation of Forge 1.8.9 - 11.15.1.2318 or later go to the step 10.
 
