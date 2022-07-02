@@ -1,5 +1,5 @@
 # FPS-Display
-The FPS Display Mod is made to be used with the Minecraft Forge Loader for the Minecraft version 1.8.9. At the moment not all planned features are implemented.
+The FPS Display Mod is made to be used with the Minecraft Forge Loader for the Minecraft version 1.12.2. At the moment not all planned features are implemented.
 
 ## Features
 ![2022-05-23_21 26 38](https://user-images.githubusercontent.com/45010661/169892585-3ffbeb17-aabd-4012-acce-a2c6ad81b183.png)
@@ -20,14 +20,14 @@ There are also links to the Github repository and my Discord name for support.
 * [FPSSpoofer](https://www.9minecraft.net/fps-spoofer-mod/): Since the FPSSpoofer changes the FPS value displayed any other readout gets a value of 0.
 
 ## Installation
-If you already have already an installation of Forge 1.8.9 - 11.15.1.2318 or later go to the step 10.
+If you already have already an installation of Forge 1.12.2 - 14.23.5.2860 or later go to the step 10.
 
 1. Click on [this link](https://www.minecraft.net/download "Download Minecraft") to download the Minecraft Installer and follow the installation process.
 2. Start the Minecraft Launcher, Log in if necessary and select the tab on the left side **Minecraft: Java Edition**.
-3. Select the tab **Installations**, then click on **New Installation**. Select the Version **Release 1.8.9**, change the Name if you want to and click **Create**.
+3. Select the tab **Installations**, then click on **New Installation**. Select the Version **Release 1.12.2**, change the Name if you want to and click **Create**.
 4. Click on the **Play** button.
 5. When the game has launched close it.
-6. Now click on [this link](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.8.9.html) and download the **Installer** for the latest version of Forge for Minecraft 1.8.9.
+6. Now click on [this link](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html) and download the **Installer** for the latest version of Forge for Minecraft 1.12.2.
 7. To install Forge you will need Java: open [this link](https://www.java.com/en/download/) and scroll down a little bit until you see a red button called **Agree and Start Free Download**.
 8. Open the downloaded file and follow the installation process.
 9. Now open the before downloaded Installer for Forge, check **Install Client** and click **OK**. Wait until the installatio is done, then close the installer.
