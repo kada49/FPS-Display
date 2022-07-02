@@ -49,15 +49,15 @@ object Utils {
         val brackets = bracketsSelector
         if (brackets) {
             text = if (prefix && !suffix) { "[FPS $fps]" }
-                else if (suffix && !prefix) { "[$fps FPS]" }
-                else if (!prefix) { "[$fps]" }
-                else { "[FPS $fps fps]" }
+            else if (suffix && !prefix) { "[$fps FPS]" }
+            else if (!prefix) { "[$fps]" }
+            else { "[FPS $fps fps]" }
         }
         else {
             text = if (prefix && !suffix) { "[FPS] $fps" }
-                else if (suffix && !prefix) { "$fps FPS" }
-                else if (!prefix) { fps }
-                else { "[FPS] $fps fps" }
+            else if (suffix && !prefix) { "$fps FPS" }
+            else if (!prefix) { fps }
+            else { "[FPS] $fps fps" }
         }
 
         return text
@@ -68,7 +68,8 @@ object Utils {
         val minecraft = Minecraft.getMinecraft()
 
         val textHeight = 8
-        val textWidth = minecraft.fontRendererObj.getStringWidth(Text)
+
+        val textWidth = minecraft.fontRenderer.getStringWidth(Text)
         var pixels = 0F
         if (Axis == "x") {
             when (Configuration.positionSelector) {
@@ -90,7 +91,7 @@ object Utils {
 
         val minecraft = Minecraft.getMinecraft()
         val textHeight = 7
-        val textWidth = minecraft.fontRendererObj.getStringWidth(Text) - 1
+        val textWidth = minecraft.fontRenderer.getStringWidth(Text) - 1
 
         var left = 0
         var right = 0

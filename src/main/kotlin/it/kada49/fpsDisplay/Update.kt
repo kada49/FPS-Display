@@ -55,7 +55,7 @@ class Update {
      */
     @SubscribeEvent @Suppress("unused")
     fun onTick(event: ClientTickEvent?) {
-        if (minecraft.theWorld != null && minecraft.thePlayer != null && !hasTriggered) {
+        if (minecraft.world != null && minecraft.player != null && !hasTriggered) {
             hasTriggered = true
             Thread {
                 try { checkForModUpdates() } catch (e: Exception) { e.printStackTrace() }

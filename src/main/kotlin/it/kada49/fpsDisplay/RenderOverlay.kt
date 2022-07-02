@@ -47,7 +47,7 @@ class RenderOverlay {
         GlStateManager.pushMatrix()
         GlStateManager.translate(Utils.textPosition("x", fpsText(), scaleSlider).toDouble(), Utils.textPosition("y", fpsText(), scaleSlider).toDouble(), 0.0)
         GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
-        minecraft.fontRendererObj.drawString( fpsText(), 0F, 0F, Configuration.fpsColor.rgb, Configuration.shadowSwitch )
+        minecraft.fontRenderer.drawString( fpsText(), 0F, 0F, Configuration.fpsColor.rgb, Configuration.shadowSwitch )
         GlStateManager.popMatrix()
 
     }
