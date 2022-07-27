@@ -4,15 +4,13 @@ pluginManagement {
         gradlePluginPortal()
 
         // Add the Forge Repository (ForgeGradle fetches most of its stuff from here)
-        maven {
+        maven ("https://maven.minecraftforge.net") {
             name = "Forge"
-            url = "https://maven.minecraftforge.net"
         }
 
         // Add the Jitpack Repository (We fetch ForgeGradle from this)
-        maven {
+        maven ("https://jitpack.io/") {
             name = "Jitpack"
-            url = "https://jitpack.io/"
         }
     }
     resolutionStrategy {
