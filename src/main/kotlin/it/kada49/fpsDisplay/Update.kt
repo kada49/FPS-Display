@@ -21,7 +21,7 @@ class Update {
         /**
          * Fetches the JSON object containing information about the newest versions.
          */
-        val updateJson = Utils.fetchJson("https://api.jsonstorage.net/v1/json/43187124-5250-4d1f-b4e7-65ea8e411651/8ab2e620-19a5-4f31-931e-7c9fc359fcf6")
+        val updateJson = Utils.fetchJson("https://kada49.github.io/json/FPS-Display-updateJson.json")
 
         val recommendedNumber = updateJson.get("promos").asJsonObject.get("${MC_VERSION}-recommended").toString()
             .replace('"'.toString(), "")

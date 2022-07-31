@@ -5,7 +5,7 @@
     "description": "Lets you set up a FPS Counter in different positions on your screen, change color and more! You can access the configuration with the command '/fps'. To check if there is an update available type '/fps update'",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "updateUrl": "https://api.jsonbin.io/b/61e6827c0f639830851e4cab/latest",
+    "updateUrl": "https://kada49.github.io/json/FPS-Display-updateJson.json",
     "authorList": ["kada49"],
     "credits": "Many people in the Official Essential Discord: https://discord.gg/g9Y94P2Z",
     "logoFile": "",
