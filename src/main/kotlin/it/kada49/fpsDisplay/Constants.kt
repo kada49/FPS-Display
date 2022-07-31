@@ -8,7 +8,7 @@ object Constants {
     /**
      * The mod name.
      */
-    const val NAME = "FPS Display"
+    const val NAME = "FPS-Display"
 
     /**
      * The mod version.

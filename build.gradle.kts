@@ -1,85 +1,42 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import gg.essential.gradle.util.noServerRunConfigs
 
 plugins {
-    java
-    id("com.github.johnrengelman.shadow") version "6.1.0"
-    id("net.minecraftforge.gradle.forge") version "6f53277"
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm")
+    id("gg.essential.multi-version")
+    id("gg.essential.defaults")
 }
 
-version = "1.1.1"
-group = "it.kada49"
+val modGroup: String by project
+val modBaseName: String by project
 
-minecraft {
-    version = "1.8.9-11.15.1.2318-1.8.9"
-    runDir = "run"
-    mappings = "stable_22"
-    makeObfSourceJar = false
+group = modGroup
+version = "1.1.1"
+base.archivesName.set(modBaseName)
+
+loom {
+    noServerRunConfigs()
+    launchConfigs {
+        getByName("client") {
+            arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
+        }
+    }
 }
 
 val include: Configuration by configurations.creating
 configurations.implementation.get().extendsFrom(include)
 
-repositories {
-    mavenCentral()
-    maven("https://repo.sk1er.club/repository/maven-public")
-}
-
 dependencies {
     include("gg.essential:loader-launchwrapper:1.1.3")
-    implementation("gg.essential:essential-1.8.9-forge:4167+g4594ad6e6")
+    implementation("gg.essential:essential-$platform:4276+g845a16235")
 }
 
-sourceSets.main {
-    output.setResourcesDir(java.outputDir)
-}
+tasks.jar {
+    from(include.files.map { zipTree(it) })
 
-tasks {
-    processResources {
-        inputs.property("version", project.version)
-        inputs.property("mcversion", project.minecraft.version)
-
-        from(sourceSets.main.get().resources.srcDirs) {
-            include("mcmod.info")
-
-            expand("version" to project.version,
-                "mcversion" to project.minecraft.version)
-        }
-
-        from(sourceSets.main.get().resources.srcDirs) {
-            exclude("mcmod.info")
-        }
-    }
-
-    shadowJar {
-        archiveClassifier.set("")
-        archiveBaseName.set("FPS-Display")
-        configurations = listOf(include)
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
-
-    jar {
-        manifest.attributes(
-            mapOf(
-                "ForceLoadAsMod" to true,
-                "ModSide" to "CLIENT",
-                "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker"
-            )
+    manifest.attributes(
+        mapOf(
+            "ModSide" to "CLIENT",
+            "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker"
         )
-
-        dependsOn(shadowJar)
-        enabled = false
-    }
-
-    compileJava {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
-
-        options.encoding = "UTF-8"
-    }
+    )
 }
-
-reobf.register("shadowJar") {}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.jvmTarget = "1.8"

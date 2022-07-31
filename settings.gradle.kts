@@ -1,26 +1,26 @@
 pluginManagement {
     repositories {
-        mavenCentral()
         gradlePluginPortal()
-
-        // Add the Forge Repository (ForgeGradle fetches most of its stuff from here)
-        maven ("https://maven.minecraftforge.net") {
-            name = "Forge"
-        }
-
-        // Add the Jitpack Repository (We fetch ForgeGradle from this)
-        maven ("https://jitpack.io/") {
-            name = "Jitpack"
-        }
+        mavenCentral()
+        maven("https://maven.fabricmc.net")
+        maven("https://maven.architectury.dev/")
+        maven("https://maven.minecraftforge.net")
+        maven("https://repo.essential.gg/repository/maven-public")
     }
-    resolutionStrategy {
-        eachPlugin {
-            // If the "net.minecraftforge.gradle.forge" plugin is requested we redirect it to asbyth's ForgeGradle fork
-            if (requested.id.id == "net.minecraftforge.gradle.forge") {
-                useModule("com.github.asbyth:ForgeGradle:${requested.version}")
-            }
-        }
+
+    plugins {
+        val egtVersion = "0.1.11"
+        id("gg.essential.multi-version.root") version egtVersion
     }
 }
 
+rootProject.buildFileName = "root.gradle.kts"
 rootProject.name = "FPS-Display"
+
+val mcVersion = "1.8.9"
+
+include(":$mcVersion")
+project(":$mcVersion").apply {
+    projectDir = file("versions/$mcVersion")
+    buildFileName = "../../build.gradle.kts"
+}
