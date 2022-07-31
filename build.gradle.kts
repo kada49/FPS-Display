@@ -10,7 +10,7 @@ val modGroup: String by project
 val modBaseName: String by project
 
 group = modGroup
-version = "1.1.1"
+version = "1.1.2"
 base.archivesName.set(modBaseName)
 
 loom {

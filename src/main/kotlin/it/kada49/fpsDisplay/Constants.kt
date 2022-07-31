@@ -13,7 +13,7 @@ object Constants {
     /**
      * The mod version.
      */
-    const val VERSION = "1.1.1"
+    const val VERSION = "1.1.2"
 
     /**
      * If this mod is a beta version.
