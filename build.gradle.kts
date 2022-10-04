@@ -27,7 +27,7 @@ configurations.implementation.get().extendsFrom(include)
 
 dependencies {
     include("gg.essential:loader-launchwrapper:1.1.3")
-    implementation("gg.essential:essential-$platform:4276+g845a16235")
+    implementation("gg.essential:essential-$platform:+")
 }
 
 tasks.jar {

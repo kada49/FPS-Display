@@ -9,7 +9,7 @@ pluginManagement {
     }
 
     plugins {
-        val egtVersion = "0.1.11"
+        val egtVersion = "0.1.16"
         id("gg.essential.multi-version.root") version egtVersion
     }
 }
