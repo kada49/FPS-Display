@@ -8,9 +8,10 @@ plugins {
 
 val modGroup: String by project
 val modBaseName: String by project
+val modVersion: String by project
 
 group = modGroup
-version = "1.1.2"
+version = modVersion
 base.archivesName.set(modBaseName)
 
 loom {
@@ -27,7 +28,7 @@ configurations.implementation.get().extendsFrom(include)
 
 dependencies {
     include("gg.essential:loader-launchwrapper:1.1.3")
-    implementation("gg.essential:essential-$platform:+")
+    implementation("gg.essential:essential-$platform:10975+g81b631012")
 }
 
 tasks.jar {

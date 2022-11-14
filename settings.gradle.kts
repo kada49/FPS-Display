@@ -17,7 +17,7 @@ pluginManagement {
 rootProject.buildFileName = "root.gradle.kts"
 rootProject.name = "FPS-Display"
 
-val mcVersion = "1.8.9"
+val mcVersion: String = "1.8.9"
 
 include(":$mcVersion")
 project(":$mcVersion").apply {
