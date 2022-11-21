@@ -24,11 +24,11 @@ class Update {
          */
         val updateJson = fetchJson("https://kada49.github.io/json/FPS-Display-updateJson.json")
 
-        val recommendedNumber = updateJson.get("promos").asJsonObject.get("${MC_VERSION}-recommended").asString
+        val recommendedNumber = updateJson["promos"].asJsonObject["${MC_VERSION}-recommended"].asString
             .replace('"'.toString(), "")
             .replace(".", "").toInt()
         val thisVersionNumber = VERSION.replace(".", "").toInt()
-        val latest = updateJson.get("promos").asJsonObject.get("${MC_VERSION}-latest").asString
+        val latest = updateJson["promos"].asJsonObject["${MC_VERSION}-latest"].asString
             .replace('"'.toString(), "")
         val latestNumber = latest.replace(".", "").toInt()
 
