@@ -2,7 +2,6 @@ package it.kada49.fpsDisplay
 
 import gg.essential.universal.UMinecraft
 import gg.essential.universal.UScreen
-import gg.essential.vigilance.Vigilance
 import it.kada49.fpsDisplay.Constants.LOGGER
 import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.common.MinecraftForge
@@ -30,7 +29,6 @@ object FpsDisplayMod{
 
         LOGGER.info("Initialization started for ${event.side}")
 
-        Vigilance.initialize()
         Configuration.preload()
 
         MinecraftForge.EVENT_BUS.register(this)
