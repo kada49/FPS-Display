@@ -16,7 +16,8 @@ class RenderOverlay {
 
     private val minecraft: Minecraft = Minecraft.getMinecraft()
 
-    @SubscribeEvent @Suppress("unused")
+    @SubscribeEvent
+    @Suppress("unused")
     fun fps(event: RenderGameOverlayEvent.Post) {
 
         /**
@@ -26,28 +27,39 @@ class RenderOverlay {
             !Configuration.toggleSwitch ||
             minecraft.gameSettings.showDebugInfo ||
             event.type != RenderGameOverlayEvent.ElementType.TEXT ||
-            ( Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen ) ||
-            ( Configuration.positionSelector == 4 && minecraft.ingameGUI.chatGUI.chatOpen )
+            (Configuration.positionSelector == 3 && minecraft.ingameGUI.chatGUI.chatOpen) ||
+            (Configuration.positionSelector == 4 && minecraft.ingameGUI.chatGUI.chatOpen)
         ) return
 
         /**
          * Sets the background colour and position.
          */
-        val backgroundColor = Color(Configuration.backgroundColor.red, Configuration.backgroundColor.green, Configuration.backgroundColor.blue, Configuration.alphaSlider).rgb
+        val backgroundColor = Color(
+            Configuration.backgroundColor.red,
+            Configuration.backgroundColor.green,
+            Configuration.backgroundColor.blue,
+            Configuration.alphaSlider
+        ).rgb
         val boxPosition = boxPosition(fpsText(), edgeSlider, scaleSlider)
 
         /**
          * Draws the background rectangle.
          */
-        if (Configuration.backgroundSwitch) { drawRect(boxPosition[0], boxPosition[1], boxPosition[2], boxPosition[3], backgroundColor) }
+        if (Configuration.backgroundSwitch) {
+            drawRect(boxPosition[0], boxPosition[1], boxPosition[2], boxPosition[3], backgroundColor)
+        }
 
         /**
          * Draws the overlay text.
          */
         GlStateManager.pushMatrix()
-        GlStateManager.translate(Utils.textPosition("x", fpsText(), scaleSlider).toDouble(), Utils.textPosition("y", fpsText(), scaleSlider).toDouble(), 0.0)
+        GlStateManager.translate(
+            Utils.textPosition("x", fpsText(), scaleSlider).toDouble(),
+            Utils.textPosition("y", fpsText(), scaleSlider).toDouble(),
+            0.0
+        )
         GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
-        minecraft.fontRendererObj.drawString( fpsText(), 0F, 0F, Configuration.fpsColor.rgb, Configuration.shadowSwitch )
+        minecraft.fontRendererObj.drawString(fpsText(), 0F, 0F, Configuration.fpsColor.rgb, Configuration.shadowSwitch)
         GlStateManager.popMatrix()
 
     }

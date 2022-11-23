@@ -9,7 +9,6 @@ object Constants {
     const val NAME = "FPS-Display"
     const val ID = "fps"
 
-    const val MC_VERSION: String = "1.8.9"
     const val VERSION = "1.2.0"
     const val IS_BETA = false
 

@@ -7,7 +7,11 @@ import java.awt.Color
 import java.io.File
 
 
-object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), guiTitle = "${Constants.NAME} (${Constants.VERSION})", sortingBehavior = ConfigSorting()) {
+object Configuration : Vigilant(
+    file = File("./config/${Constants.ID}.toml"),
+    guiTitle = "${Constants.NAME} (${Constants.VERSION})",
+    sortingBehavior = ConfigSorting()
+) {
 
     @Property(
         type = PropertyType.SWITCH,
@@ -126,7 +130,8 @@ object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), gui
         placeholder = "Open",
         category = "Links"
     )
-    @Suppress("unused") fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+    @Suppress("unused")
+    fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
 
     @Property(
         type = PropertyType.BUTTON,
@@ -135,7 +140,8 @@ object Configuration: Vigilant(file = File("./config/${Constants.ID}.toml"), gui
         placeholder = "kada49#4224",
         category = "Links"
     )
-    @Suppress("unused") fun discordButton() = ""
+    @Suppress("unused")
+    fun discordButton() = ""
 
 
     init {
@@ -156,8 +162,12 @@ class ConfigSorting : SortingBehavior() {
             /**
              * Personalisation category
              */
-            if (o1.name == "Personalisation") { return@Comparator -1 }
-            if (o2.name == "Personalisation") { return@Comparator 1 }
+            if (o1.name == "Personalisation") {
+                return@Comparator -1
+            }
+            if (o2.name == "Personalisation") {
+                return@Comparator 1
+            }
 
 
             return@Comparator o1.name.compareTo(o2.name)
@@ -171,28 +181,43 @@ class ConfigSorting : SortingBehavior() {
             /**
              * Background Subcategory
              */
-            if (o1.key == "Background") { return@Comparator 1 }
-            if (o2.key == "Background") { return@Comparator -1 }
+            if (o1.key == "Background") {
+                return@Comparator 1
+            }
+            if (o2.key == "Background") {
+                return@Comparator -1
+            }
 
             return@Comparator o1.key.compareTo(o2.key)
         }
     }
+
     @NotNull
     override fun getPropertyComparator(): Comparator<in PropertyData> {
-        return Comparator {o1: PropertyData, o2: PropertyData ->
+        return Comparator { o1: PropertyData, o2: PropertyData ->
 
             /**
              * FPS Counter text
              */
-            if (o1.attributesExt.name == "GitHub") { return@Comparator -1 }
-            if (o1.attributesExt.name == "Toggle FPS Display") { return@Comparator -1 }
-            if (o2.attributesExt.name == "GitHub") { return@Comparator 1 }
-            if (o2.attributesExt.name == "Toggle FPS Display") { return@Comparator 1 }
+            if (o1.attributesExt.name == "GitHub") {
+                return@Comparator -1
+            }
+            if (o1.attributesExt.name == "Toggle FPS Display") {
+                return@Comparator -1
+            }
+            if (o2.attributesExt.name == "GitHub") {
+                return@Comparator 1
+            }
+            if (o2.attributesExt.name == "Toggle FPS Display") {
+                return@Comparator 1
+            }
 
             /**
              * FPS Counter background
              */
-            if (o2.attributesExt.name == "Toggle Background") { return@Comparator 1 }
+            if (o2.attributesExt.name == "Toggle Background") {
+                return@Comparator 1
+            }
 
 
             return@Comparator o1.attributesExt.name.compareTo(o2.attributesExt.name)
