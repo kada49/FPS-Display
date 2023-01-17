@@ -26,8 +26,8 @@ class Update(private val version: String) {
 
         //Fetches the JSON object containing information about the newest versions.
 
-        val latestNumber = this.latest.replace(".", "").toInt()
-        val thisVersionNumber = this.version.replace(".", "").toInt()
+        val latestNumber = this.latest.replace(".", "0").toInt()
+        val thisVersionNumber = this.version.replace(".", "0").toInt()
 
 
         //Sends the correct message to the player according to the current version and the latest and recommended available version.

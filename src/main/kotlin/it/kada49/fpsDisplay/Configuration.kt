@@ -17,23 +17,26 @@ object Configuration : Vigilant(
         type = PropertyType.SWITCH,
         name = "Toggle FPS Display",
         description = "Enable or Disable the FPS Counter Display",
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "General"
     )
     var toggleSwitch = true
 
     @Property(
         type = PropertyType.COLOR,
-        name = "Color of the FPS Counter",
-        description = "Select a color from the whole palette to match the FPS Counter text onscreen.",
-        category = "Personalisation"
+        name = "Text color and transparency",
+        description = "Pick a color and a transparency percentage from the color palette to match the FPS Counter text onscreen.",
+        category = "Personalisation",
+        subcategory = "General"
     )
     var fpsColor = Color(255, 255, 255)
 
     @Property(
         type = PropertyType.SWITCH,
-        name = "Shadow to the FPS Counter text",
+        name = "Shadow to the text",
         description = "Enable or disable a shadow to the FPS Counter.",
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "General"
     )
     var shadowSwitch = true
 
@@ -42,7 +45,8 @@ object Configuration : Vigilant(
         name = "Positioning",
         description = "Select one of the available positioning for the FPS Counter.",
         options = ["Top Left", "Top Middle", "Top Right", "Bottom Left", "Bottom Right"],
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "General"
     )
     var positionSelector = 0
 
@@ -52,7 +56,8 @@ object Configuration : Vigilant(
         description = "Change the scale of the FPS Counter.",
         min = 1,
         max = 3,
-        category = "Personalisation"
+        category = "Personalisation",
+        subcategory = "General"
     )
     var scaleSlider = 1
 
@@ -68,7 +73,7 @@ object Configuration : Vigilant(
     @Property(
         type = PropertyType.SWITCH,
         name = "Toggle prefix",
-        description = "Enable or disable the '[FPS]' prefix before the FPS Number.",
+        description = "Enable or disable the '[FPS] ' prefix before the FPS Number.",
         category = "Personalisation",
         subcategory = "Text Formatting"
     )
@@ -77,7 +82,7 @@ object Configuration : Vigilant(
     @Property(
         type = PropertyType.SWITCH,
         name = "Toggle suffix",
-        description = "Enable or disable the 'FPS' suffix after the FPS Number.",
+        description = "Enable or disable the ' FPS' suffix after the FPS Number.",
         category = "Personalisation",
         subcategory = "Text Formatting"
     )
@@ -94,28 +99,17 @@ object Configuration : Vigilant(
 
     @Property(
         type = PropertyType.COLOR,
-        name = "Color of the Background",
-        description = "Pick a color for for the background.",
+        name = "Color and transparency",
+        description = "Pick a color and the transparency for for the background.",
         category = "Personalisation",
         subcategory = "Background"
     )
-    var backgroundColor = Color(211, 211, 211)
+    var backgroundColor = Color(211, 211, 211, 64)
 
     @Property(
         type = PropertyType.SLIDER,
-        name = "Transparency",
-        description = "Set an alpha value for the background.",
-        min = 1,
-        max = 255,
-        category = "Personalisation",
-        subcategory = "Background"
-    )
-    var alphaSlider = 64
-
-    @Property(
-        type = PropertyType.SLIDER,
-        name = "Outer edge of the background",
-        description = "Set the value for the size of the edge over the FPS Counter.",
+        name = "Outer edge",
+        description = "Set the value for the size of the edge over the FPS Counter text.",
         min = 2,
         max = 4,
         category = "Personalisation",
@@ -148,7 +142,7 @@ object Configuration : Vigilant(
         initialize()
 
         // Hide some properties if the background is disabled.
-        listOf("edgeSlider", "alphaSlider", "backgroundColor")
+        listOf("edgeSlider", "backgroundColor")
             .forEach { addDependency(it, "backgroundSwitch") }
     }
 
