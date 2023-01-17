@@ -1,5 +1,6 @@
 package it.kada49.fpsDisplay
 
+import it.kada49.fpsDisplay.Axis.*
 import it.kada49.fpsDisplay.Configuration.edgeSlider
 import it.kada49.fpsDisplay.Configuration.scaleSlider
 import it.kada49.fpsDisplay.Utils.boxPosition
@@ -54,8 +55,8 @@ class RenderOverlay {
          */
         GlStateManager.pushMatrix()
         GlStateManager.translate(
-            Utils.textPosition("x", fpsText(), scaleSlider).toDouble(),
-            Utils.textPosition("y", fpsText(), scaleSlider).toDouble(),
+            Utils.textPosition(X, fpsText(), scaleSlider).toDouble(),
+            Utils.textPosition(Y, fpsText(), scaleSlider).toDouble(),
             0.0
         )
         GlStateManager.scale(scaleSlider.toDouble(), scaleSlider.toDouble(), scaleSlider.toDouble())
