@@ -3,7 +3,7 @@ package it.kada49.fpsDisplay
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import gg.essential.universal.UChat
-import it.kada49.fpsDisplay.Axis.*
+import it.kada49.fpsDisplay.Axle.*
 import it.kada49.fpsDisplay.Configuration.bracketsSelector
 import it.kada49.fpsDisplay.Configuration.prefixSwitch
 import it.kada49.fpsDisplay.Configuration.suffixSwitch
@@ -75,14 +75,14 @@ object Utils {
         return text
     }
 
-    fun textPosition(axis: Axis, text: String, scale: Int): Float {
+    fun textPosition(axle: Axle, text: String, scale: Int): Float {
 
         val minecraft = Minecraft.getMinecraft()
 
         val textHeight = 8
         val textWidth = minecraft.fontRendererObj.getStringWidth(text)
 
-        val pixels = when (axis) {
+        val pixels = when (axle) {
             X -> {
                 when (Position.values()[Configuration.positionSelector]) {
                     TOP_MIDDLE -> (minecraft.displayWidth / (2 * ScaledResolution(minecraft).scaleFactor) - ((textWidth - 1) * scale) / 2).toFloat()

@@ -1,6 +1,6 @@
 package it.kada49.fpsDisplay
 
-enum class Axis {
+enum class Axle {
     X,
     Y;
 }

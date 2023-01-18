@@ -1,6 +1,6 @@
 package it.kada49.fpsDisplay
 
-import it.kada49.fpsDisplay.Axis.*
+import it.kada49.fpsDisplay.Axle.*
 import it.kada49.fpsDisplay.Configuration.backgroundColor
 import it.kada49.fpsDisplay.Configuration.backgroundSwitch
 import it.kada49.fpsDisplay.Configuration.edgeSlider
