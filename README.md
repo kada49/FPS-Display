@@ -6,7 +6,7 @@ The FPS Display Mod is made to be used with the Minecraft Forge Loader for the M
 The mod can display an FPS Counter on one of the four corners. When you open the chat and have the Counter on one of the bottom corners it dissapears to see chat better. Until now (version 1.1.0) you can personalise the color of the text, toggle a shadow, a background, enable or disable the suffix/prefix and change the scale.
 
 ![2022-05-23_21 27 25](https://user-images.githubusercontent.com/45010661/169892868-d7585a3e-9185-436e-a715-1585492580d8.png)
-You can check if a new version is available by typing `/fps update` or automatically when joining a world/server for the first time after launching the game (Nothing will appear if the mod is up-to-date).
+You can check if a new version is available by typing `/fps update`. This is also done automatically the first time joining a world/server after a you launched Minecraft.
 
 ## Configuration
 ![2022-05-23_21 27 46](https://user-images.githubusercontent.com/45010661/169893054-e5cb0935-7824-4ce6-a34a-0e9532415027.png)
@@ -20,7 +20,7 @@ There are also links to the Github repository and my Discord name for support.
 * [FPSSpoofer](https://www.9minecraft.net/fps-spoofer-mod/): Since the FPSSpoofer changes the FPS value displayed any other readout gets a value of 0.
 
 ## Installation
-If you already have already an installation of Forge 1.8.9 - 11.15.1.2318 or later go to the step 10.
+If you already have already an installation of Forge for Minecraft 1.8.9 go to the step 10.
 
 1. Click on [this link](https://www.minecraft.net/download "Download Minecraft") to download the Minecraft Installer and follow the installation process.
 2. Start the Minecraft Launcher, Log in if necessary and select the tab on the left side **Minecraft: Java Edition**.
