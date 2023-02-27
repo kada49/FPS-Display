@@ -1,6 +1,5 @@
 package it.kada49.fpsDisplay
 
-import it.kada49.fpsDisplay.Constants.VERSION
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
 import net.minecraft.command.WrongUsageException
@@ -28,7 +27,7 @@ class Command : CommandBase() {
             return
         }
         if (args[0] == "update") {
-            Update(VERSION).checkForModUpdates(true)
+            Update().checkForModUpdates(true)
         }
         else {
             throw WrongUsageException(getCommandUsage(sender))

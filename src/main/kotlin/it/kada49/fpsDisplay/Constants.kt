@@ -8,9 +8,7 @@ object Constants {
 
     const val NAME = "FPS-Display"
     const val ID = "fps"
-
     const val VERSION = "1.2.0"
-    const val IS_BETA = false
 
     const val PREFIX = "§5[§eFPS§5]"
 

@@ -37,7 +37,7 @@ object FpsDisplayMod {
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(RenderOverlay())
-        MinecraftForge.EVENT_BUS.register(Update(VERSION))
+        MinecraftForge.EVENT_BUS.register(Update())
 
         ClientCommandHandler.instance.registerCommand(Command())
     }
