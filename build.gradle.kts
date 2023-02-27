@@ -1,9 +1,6 @@
-import gg.essential.gradle.util.noServerRunConfigs
-
 plugins {
-    kotlin("jvm")
-    id("gg.essential.multi-version")
-    id("gg.essential.defaults")
+    kotlin("jvm") version("1.8.10")
+    id("gg.essential.loom") version("0.10.0.5")
 }
 
 val modGroup: String by project
@@ -15,7 +12,6 @@ version = modVersion
 base.archivesName.set(modBaseName)
 
 loom {
-    noServerRunConfigs()
     launchConfigs {
         getByName("client") {
             arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
@@ -26,18 +22,36 @@ loom {
 val include: Configuration by configurations.creating
 configurations.implementation.get().extendsFrom(include)
 
-dependencies {
-    include("gg.essential:loader-launchwrapper:1.1.3")
-    implementation("gg.essential:essential-$platform:11686+g33ad2d268")
+repositories {
+    maven("https://repo.essential.gg/repository/maven-public")
 }
 
-tasks.jar {
-    from(include.files.map { zipTree(it) })
+dependencies {
+    minecraft("com.mojang:minecraft:1.8.9")
+    mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
+    forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
-    manifest.attributes(
-        mapOf(
-            "ModSide" to "CLIENT",
-            "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker"
+
+    include("gg.essential:loader-launchwrapper:1.1.3")
+    implementation("gg.essential:essential-1.8.9-forge:11965+g800d8ccf6")
+}
+
+tasks {
+    processResources {
+        inputs.property("version", project.version)
+        filesMatching("mcmod.info") {
+            expand("version" to project.version)
+        }
+    }
+
+    jar {
+        from(include.files.map { zipTree(it) })
+
+        manifest.attributes(
+            mapOf(
+                "ModSide" to "CLIENT",
+                "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker"
+            )
         )
-    )
+    }
 }
