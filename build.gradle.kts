@@ -19,6 +19,9 @@ loom {
             arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
         }
     }
+    forge {
+
+    }
 }
 
 val include: Configuration by configurations.creating
