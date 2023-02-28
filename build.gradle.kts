@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version("1.8.10")
     id("gg.essential.loom") version("0.10.0.5")
@@ -53,5 +55,13 @@ tasks {
                 "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker"
             )
         )
+    }
+
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+    withType<JavaCompile> {
+        options.release.set(8)
     }
 }
