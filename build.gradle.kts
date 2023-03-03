@@ -1,8 +1,10 @@
+import dev.architectury.pack200.java.Pack200Adapter
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version("1.8.10")
     id("gg.essential.loom") version("0.10.0.5")
+    id("dev.architectury.architectury-pack200") version ("0.1.3")
 }
 
 val modGroup: String by project
@@ -19,9 +21,7 @@ loom {
             arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
         }
     }
-    forge {
-
-    }
+    forge.pack200Provider.set(Pack200Adapter())
 }
 
 val include: Configuration by configurations.creating
