@@ -1,15 +1,20 @@
-package it.kada49.fpsDisplay
+package it.kada49
 
 import gg.essential.vigilance.Vigilant
 import gg.essential.vigilance.data.*
+import it.kada49.Constants.ID
+import it.kada49.Constants.NAME
+import it.kada49.Constants.VERSION
 import org.jetbrains.annotations.NotNull
 import java.awt.Color
+import java.awt.Desktop
 import java.io.File
+import java.net.URI
 
 
 object Configuration : Vigilant(
-    file = File("./config/${Constants.ID}.toml"),
-    guiTitle = "${Constants.NAME} (${Constants.VERSION})",
+    file = File("./config/$ID.toml"),
+    guiTitle = "$NAME ($VERSION)",
     sortingBehavior = ConfigSorting()
 ) {
 
@@ -17,7 +22,7 @@ object Configuration : Vigilant(
         type = PropertyType.SWITCH,
         name = "Toggle FPS Display",
         description = "Enable or Disable the FPS Counter Display",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "General"
     )
     var toggleSwitch = true
@@ -26,7 +31,7 @@ object Configuration : Vigilant(
         type = PropertyType.COLOR,
         name = "Text color and transparency",
         description = "Pick a color and a transparency percentage from the color palette to match the FPS Counter text onscreen.",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "General"
     )
     var fpsColor = Color(255, 255, 255)
@@ -35,7 +40,7 @@ object Configuration : Vigilant(
         type = PropertyType.SWITCH,
         name = "Shadow to the text",
         description = "Enable or disable a shadow to the FPS Counter.",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "General"
     )
     var shadowSwitch = true
@@ -45,7 +50,7 @@ object Configuration : Vigilant(
         name = "Positioning",
         description = "Select one of the available positioning for the FPS Counter.",
         options = ["Top Left", "Top Middle", "Top Right", "Bottom Left", "Bottom Right"],
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "General"
     )
     var positionSelector = 0
@@ -56,7 +61,7 @@ object Configuration : Vigilant(
         description = "Change the scale of the FPS Counter.",
         min = 1,
         max = 3,
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "General"
     )
     var scaleSlider = 1
@@ -65,34 +70,26 @@ object Configuration : Vigilant(
         type = PropertyType.SWITCH,
         name = "Toggle brackets",
         description = "Enable or disable brackets around all the FPS Counter text",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "Text Formatting"
     )
     var bracketsSelector = false
 
     @Property(
-        type = PropertyType.SWITCH,
-        name = "Toggle prefix",
-        description = "Enable or disable the '[FPS] ' prefix before the FPS Number.",
-        category = "Personalisation",
+        type = PropertyType.SELECTOR,
+        name = "Format",
+        description = "Choose between a prefix, suffix or just the number.",
+        options = ["Prefix", "Suffix", "Number"],
+        category = "Personalization",
         subcategory = "Text Formatting"
     )
-    var prefixSwitch = false
-
-    @Property(
-        type = PropertyType.SWITCH,
-        name = "Toggle suffix",
-        description = "Enable or disable the ' FPS' suffix after the FPS Number.",
-        category = "Personalisation",
-        subcategory = "Text Formatting"
-    )
-    var suffixSwitch = true
+    var format = 0
 
     @Property(
         type = PropertyType.SWITCH,
         name = "Toggle Background",
         description = "Enable or disable a background color.",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "Background"
     )
     var backgroundSwitch = true
@@ -101,7 +98,7 @@ object Configuration : Vigilant(
         type = PropertyType.COLOR,
         name = "Color and transparency",
         description = "Pick a color and the transparency for for the background.",
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "Background"
     )
     var backgroundColor = Color(211, 211, 211, 64)
@@ -112,7 +109,7 @@ object Configuration : Vigilant(
         description = "Set the value for the size of the edge over the FPS Counter text.",
         min = 2,
         max = 4,
-        category = "Personalisation",
+        category = "Personalization",
         subcategory = "Background"
     )
     var edgeSlider = 2
@@ -125,7 +122,11 @@ object Configuration : Vigilant(
         category = "Links"
     )
     @Suppress("unused")
-    fun gitHubButton() = Utils.openUrl("https://GitHub.com/kada49/FPS-Display")
+    fun gitHubButton() {
+        try {
+            Desktop.getDesktop().browse(URI("https://github.com/kada49/FPS-Display"))
+        } catch (_: Exception) {}
+    }
 
     @Property(
         type = PropertyType.BUTTON,
@@ -154,12 +155,12 @@ class ConfigSorting : SortingBehavior() {
         return Comparator { o1: Category, o2: Category ->
 
             /**
-             * Personalisation category
+             * Personalization category
              */
-            if (o1.name == "Personalisation") {
+            if (o1.name == "Personalization") {
                 return@Comparator -1
             }
-            if (o2.name == "Personalisation") {
+            if (o2.name == "Personalization") {
                 return@Comparator 1
             }
 
