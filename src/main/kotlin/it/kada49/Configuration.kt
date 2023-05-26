@@ -79,7 +79,7 @@ object Configuration : Vigilant(
         type = PropertyType.SELECTOR,
         name = "Format",
         description = "Choose between a prefix, suffix or just the number.",
-        options = ["Prefix", "Suffix", "Number"],
+        options = ["Prefix", "Suffix", "Just Number"],
         category = "Personalization",
         subcategory = "Text Formatting"
     )

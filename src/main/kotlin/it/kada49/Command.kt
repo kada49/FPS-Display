@@ -9,7 +9,6 @@ class Command : CommandBase() {
     override fun getCommandName() = "fps"
     override fun getRequiredPermissionLevel(): Int = 0
     override fun getCommandUsage(sender: ICommandSender?): String = "/fps = Setup for the FPS-Display Mod configuration\n/fps update = Check for mod updates"
-
     override fun addTabCompletionOptions(
         sender: ICommandSender?,
         args: Array<String>,
