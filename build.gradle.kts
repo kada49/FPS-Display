@@ -2,8 +2,8 @@ import dev.architectury.pack200.java.Pack200Adapter
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version("1.8.21")
-    id("gg.essential.loom") version("0.10.0.+")
+    kotlin("jvm") version("1.8.22")
+    id("gg.essential.loom") version("1.2.8")
     id("dev.architectury.architectury-pack200") version ("0.1.3")
 }
 
@@ -16,20 +16,20 @@ version = modVersion
 base.archivesName.set(modBaseName)
 
 loom {
-    launchConfigs {
+    runConfigs {
         getByName("client") {
-            arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
+            programArgs("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
         }
     }
     forge.pack200Provider.set(Pack200Adapter())
 }
 
-val include: Configuration by configurations.creating
-configurations.implementation.get().extendsFrom(include)
-
 repositories {
     maven("https://repo.essential.gg/repository/maven-public")
 }
+
+val embed: Configuration by configurations.creating
+configurations.implementation.get().extendsFrom(embed)
 
 dependencies {
     minecraft("com.mojang:minecraft:1.8.9")
@@ -37,8 +37,8 @@ dependencies {
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
 
-    include("gg.essential:loader-launchwrapper:1.2.0")
-    implementation("gg.essential:essential-1.8.9-forge:12650+g9451b4afe")
+    embed("gg.essential:loader-launchwrapper:1.2.1")
+    implementation("gg.essential:essential-1.8.9-forge:13419+gad15d412e")
 }
 
 tasks {
@@ -50,7 +50,7 @@ tasks {
     }
 
     jar {
-        from(include.files.map { zipTree(it) })
+        from(embed.files.map { zipTree(it) })
 
         manifest.attributes(
             mapOf(
@@ -66,5 +66,6 @@ tasks {
 
     withType<JavaCompile> {
         options.release.set(8)
+        options.encoding = "UTF-8"
     }
 }
