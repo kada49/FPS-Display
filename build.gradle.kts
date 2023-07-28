@@ -38,7 +38,7 @@ dependencies {
 
 
     embed("gg.essential:loader-launchwrapper:1.2.1")
-    implementation("gg.essential:essential-1.8.9-forge:13419+gad15d412e")
+    compileOnly("gg.essential:essential-1.8.9-forge:13419+gad15d412e")
 }
 
 tasks {
