@@ -132,7 +132,7 @@ object Configuration : Vigilant(
         type = PropertyType.BUTTON,
         name = "Discord",
         description = "If you discover any bugs, issues, or have ideas for more features DM me on Discord:",
-        placeholder = "kada49#4224",
+        placeholder = "kada49",
         category = "Links"
     )
     @Suppress("unused")
