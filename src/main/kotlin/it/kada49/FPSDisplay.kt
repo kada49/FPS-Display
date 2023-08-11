@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
 
-@Mod(modid = ID, name = NAME, version = VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter")
+@Mod(modid = ID, name = NAME, version = VERSION, modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter", updateJSON = "https://kada49.github.io/json/FPS-Display-updateJson.json")
 
 object FPSDisplay {
 
