@@ -2,8 +2,8 @@ import dev.architectury.pack200.java.Pack200Adapter
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version("1.8.22")
-    id("gg.essential.loom") version("1.2.8")
+    kotlin("jvm") version("1.9.10")
+    id("gg.essential.loom") version("1.3.12")
     id("dev.architectury.architectury-pack200") version ("0.1.3")
 }
 
@@ -38,7 +38,7 @@ dependencies {
 
 
     embed("gg.essential:loader-launchwrapper:1.2.1")
-    compileOnly("gg.essential:essential-1.8.9-forge:13637+gcbb5744f0")
+    compileOnly("gg.essential:essential-1.8.9-forge:14127+g423474bca")
 }
 
 tasks {
