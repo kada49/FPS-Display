@@ -2,7 +2,7 @@ import dev.architectury.pack200.java.Pack200Adapter
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version("1.9.10")
+    kotlin("jvm") version("1.9.22")
     id("gg.essential.loom") version("1.3.12")
     id("dev.architectury.architectury-pack200") version ("0.1.3")
 }
@@ -37,8 +37,8 @@ dependencies {
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
 
-    embed("gg.essential:loader-launchwrapper:1.2.1")
-    compileOnly("gg.essential:essential-1.8.9-forge:14127+g423474bca")
+    embed("gg.essential:loader-launchwrapper:1.2.2")
+    compileOnly("gg.essential:essential-1.8.9-forge:16261+gb6125ee84b")
 }
 
 tasks {
